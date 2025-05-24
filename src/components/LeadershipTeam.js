@@ -9,7 +9,7 @@ const teamMembers = [
   {
     name: "Mr. Amarnath",
     description: "General Manager",
-    image: "/Amarnath.png",
+    image: "/amarnath.png",
   },
   {
     name: "Mr. Charan",
