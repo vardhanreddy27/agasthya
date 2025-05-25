@@ -44,6 +44,36 @@ From farm to factory, we prioritize sustainability at every step. Our ingredient
         </div>
       ),
     },
+      {
+      title: "Enhanced Extrusion Packing",
+      content: (
+        <div className="mb-8">
+          <div className="mb-4">
+            <Image
+              src="/milling.jpg"
+              alt="Enhanced Extrusion Packing"
+              width={1000}
+              height={imageHeight}
+              className="object-cover rounded-lg w-full h-[250px]"
+            />
+          </div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm mb-2">
+            We preserve the rich nutrients and authentic flavor of oats through traditional stone milling techniques.
+          </p>
+          <ul className="list-none text-neutral-800 dark:text-neutral-200 text-sm space-y-1">
+            <li className="flex items-start">
+              <span className="mr-2">✓</span> Slow milling process retains essential fiber and vitamins.
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">✓</span> No excessive heat – keeps oats naturally fresh.
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">✓</span> Eco-friendly packaging ensures sustainability.
+            </li>
+          </ul>
+        </div>
+      ),
+    },
     {
       title: "Quality Check & Cleaning",
       content: (
@@ -77,36 +107,7 @@ After sourcing, every ingredient undergoes a meticulous quality check and a mult
         </div>
       ),
     },
-    {
-      title: "Enhanced Extrusion Technique",
-      content: (
-        <div className="mb-8">
-          <div className="mb-4">
-            <Image
-              src="/milling.jpg"
-              alt="Enhanced Extrusion Technique"
-              width={1000}
-              height={imageHeight}
-              className="object-cover rounded-lg w-full h-[250px]"
-            />
-          </div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-sm mb-2">
-            We preserve the rich nutrients and authentic flavor of oats through traditional stone milling techniques.
-          </p>
-          <ul className="list-none text-neutral-800 dark:text-neutral-200 text-sm space-y-1">
-            <li className="flex items-start">
-              <span className="mr-2">✓</span> Slow milling process retains essential fiber and vitamins.
-            </li>
-            <li className="flex items-start">
-              <span className="mr-2">✓</span> No excessive heat – keeps oats naturally fresh.
-            </li>
-            <li className="flex items-start">
-              <span className="mr-2">✓</span> Eco-friendly packaging ensures sustainability.
-            </li>
-          </ul>
-        </div>
-      ),
-    },
+  
   ];
 
   return (
