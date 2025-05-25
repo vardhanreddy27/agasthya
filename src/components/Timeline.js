@@ -29,7 +29,7 @@ export const Timeline = ({ data = [] }) => {
     >
    <div className="p-10 flex flex-col items-center justify-center text-center ">
   <h2 className="text-lg md:text-4xl font-bold  text-black dark:text-white ">
-    Why MR Flakes Nutrix
+    Why Mr. Flakes Nutrix
   </h2>
   <p className="text-neutral-700 mb-20 dark:text-neutral-300 text-sm p-5">
     We believe in the power of the right ingredients and aim to bring you the perfect blend of taste and nutrition. That is why everything at Mr Flakes Nutrix is packed with natural goodness from around the world – oats from open fields, real fruits, and whole grains.

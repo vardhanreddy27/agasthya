@@ -75,13 +75,13 @@ From farm to factory, we prioritize sustainability at every step. Our ingredient
       ),
     },
     {
-      title: "Quality Check & Cleaning",
+      title: "Quality Check & Packing",
       content: (
         <div className="mb-14">
           <div className="mb-4">
             <Image
               src="/cleaning.jpg"
-              alt="Quality Check & Cleaning"
+              alt="Quality Check & Packing"
               width={1000}
               height={imageHeight}
               className="object-cover rounded-lg w-full h-[250px]"
