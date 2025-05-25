@@ -2,7 +2,8 @@ import React from "react";
 import ImageSlider from "./ImageSlider";
 
 const SubscriptionSection = () => {
-  return (<>      <ImageSlider />
+  return (<>     
+    {/* <ImageSlider /> */}
     <div className="bg-black text-white py-12 px-4">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">

@@ -78,13 +78,13 @@ After sourcing, every ingredient undergoes a meticulous quality check and a mult
       ),
     },
     {
-      title: "Milling & Packing",
+      title: "Enhanced Extrusion Technique",
       content: (
         <div className="mb-8">
           <div className="mb-4">
             <Image
               src="/milling.jpg"
-              alt="Milling & Packing"
+              alt="Enhanced Extrusion Technique"
               width={1000}
               height={imageHeight}
               className="object-cover rounded-lg w-full h-[250px]"

@@ -17,7 +17,7 @@ function Ingredients() {
     <div className="bg-[#F6F1EB] py-6">
       {/* Title */}
       <h1 className="text-center text-3xl md:text-4xl font-bold text-[#9D252D] my-6">
-        Power Packed Ingredients
+        Powerhouse Ingredients
       </h1>
 
       <div className="mx-auto">
