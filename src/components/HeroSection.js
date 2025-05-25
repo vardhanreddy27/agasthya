@@ -123,10 +123,10 @@ export default function HeroSection() {
         {/* Left Side */}
         <div className="flex-1 text-center lg:text-left">
           <h1 className="text-5xl leading-tight mb-4 text-gray-900 drop-shadow-lg">
-       Bringing You the Newest in Health
+       Reimagining Nutrition for Modern Living
             <br />
             <span className="font-bold text-[rgb(157,37,45)] drop-shadow-md">
-              AGASTHYA SUPER FOODS
+              AGASTHYA SUPERFOODS
             </span>
           </h1>
           <p className="text-gray-600 mt-2 max-w-xl">
@@ -155,41 +155,53 @@ Swipe through our newest launches and taste the future of nutrition!
         </div>
       </div>
       {/* Detail Modal */}
-      <AnimatePresence>
-        {selectedItem && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
-            onClick={closeModal}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative"
-            >
-              <button
-                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-                onClick={closeModal}
-              >
-                <X size={20} />
-              </button>
-              <img
-                src={selectedItem.image}
-                alt="Selected"
-                className="w-full mt-4 h-60 object-cover rounded-xl mb-4"
-              />
-              <h2 className="text-xl font-semibold mb-2 text-gray-800">
-                {selectedItem.title}
-              </h2>
-              <p className="text-gray-600 text-sm">{selectedItem.description}</p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+    {/* Detail Modal */}
+<AnimatePresence>
+  {selectedItem && (
+    <motion.div
+      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+      onClick={closeModal}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative"
+      >
+        <button
+          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+          onClick={closeModal}
+        >
+          <X size={20} />
+        </button>
+        <img
+          src={selectedItem.image}
+          alt="Selected"
+          className="w-full mt-4 h-60 object-cover rounded-xl mb-4"
+        />
+        <h2 className="text-xl font-semibold mb-2 text-gray-800">
+          {selectedItem.title}
+        </h2>
+        <p className="text-gray-600 text-sm mb-4">{selectedItem.description}</p>
+
+        {/* ✅ Shop Now Button */}
+        <button
+          className="bg-[rgb(157,37,45)] text-white px-5 py-2 rounded-full text-sm font-medium hover:opacity-90 transition w-full"
+          onClick={() => {
+            window.location.href = "/WholesaleBulk";
+          }}
+        >
+          Shop Now
+        </button>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </section>
   );
 }

@@ -21,8 +21,8 @@ export function TimelineDemo() {
             />
           </div>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm">
-            We collaborate with dedicated farmers who hand-pick the finest quality oats, ensuring both purity and sustainability. We prioritize sustainability at every step. Our oats are sourced responsibly, processed using energy-efficient methods, and packaged with eco-friendly materials.
-          </p>
+
+At Agasthya Superfoods, we proudly collaborate with trusted, hand-picked farmers who share our commitment to quality and sustainability. Every batch of oats is carefully selected at the source to ensure maximum purity and nutritional integrity. From responsible sourcing to energy-efficient processing and eco-friendly packaging, sustainability is embedded into every step of our supply chain.          </p>
         </div>
       ),
     },
@@ -40,8 +40,7 @@ export function TimelineDemo() {
             />
           </div>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm">
-            From farm to factory, we prioritize sustainability at every step. Our oats are sourced responsibly, processed using energy-efficient methods, and packaged with eco-friendly materials. We are committed to a zero-carbon footprint, ensuring that every batch of oats you enjoy is not only healthy for you but also kind to the planet.
-          </p>
+From farm to factory, we prioritize sustainability at every step. Our ingredients are responsibly sourced from trusted farmers, processed using energy-efficient methods, and packaged with eco-conscious materials. At Agasthya Superfoods, we are committed to reducing our environmental impact — ensuring every product you enjoy supports both your health and the planet.          </p>
         </div>
       ),
     },
@@ -59,30 +58,33 @@ export function TimelineDemo() {
             />
           </div>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm mb-2">
-            After sourcing, our oats undergo a meticulous quality check and multi-stage cleaning process to ensure only the purest grains reach your table.
-          </p>
+After sourcing, every ingredient undergoes a meticulous quality check and a multi-stage cleaning process — ensuring only the finest grains and superfoods reach your table.
+
+
+
+      </p>
           <ul className="list-none text-neutral-800 dark:text-neutral-200 text-sm space-y-1">
             <li className="flex items-start">
-              <span className="mr-2">✓</span> Advanced sorting technology removes impurities.
+              <span className="mr-2">✅ </span>Precision Sorting: Advanced technology eliminates unwanted impurities.
             </li>
             <li className="flex items-start">
-              <span className="mr-2">✓</span> Multiple cleaning cycles eliminate dust and foreign particles.
+              <span className="mr-2">🌿 </span> Deep Cleaning Cycles: Multiple passes remove dust, husks, and foreign particles.
             </li>
             <li className="flex items-start">
-              <span className="mr-2">✓</span> Strict hygiene standards maintain oat purity and freshness.
+              <span className="mr-2">🧼 </span> Hygiene Assured: Strict standards preserve natural purity, flavor, and freshness.    
             </li>
           </ul>
         </div>
       ),
     },
     {
-      title: "Traditional Stone Milling & Packing",
+      title: "Milling & Packing",
       content: (
         <div className="mb-8">
           <div className="mb-4">
             <Image
               src="/milling.jpg"
-              alt="Traditional Stone Milling & Packing"
+              alt="Milling & Packing"
               width={1000}
               height={imageHeight}
               className="object-cover rounded-lg w-full h-[250px]"

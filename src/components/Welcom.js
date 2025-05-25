@@ -6,12 +6,12 @@ import { LiaCertificateSolid } from "react-icons/lia";
 
 function Welcome() {
   return (
-    <section className=" ">
-      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
+    <section className="bg-[#FFF0F1]	 ">
+<div className="w-full flex flex-col lg:flex-row items-center justify-between">
         {/* Left Column */}
         <div className="lg:w-1/3 mb-10 lg:mb-0 p-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Welcome to Agastya Super Foods
+            Welcome to Agastya SuperFoods
           </h1>
           <p className="text-lg md:text-xl mb-6">
             Discover the fusion of tradition and innovation with Agastya Superfoods.

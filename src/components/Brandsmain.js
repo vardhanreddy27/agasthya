@@ -27,7 +27,7 @@ export default function Brandsmain() {
           Our Trusted Brands
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-          At Agasthya Super Foods, we proudly bring you excellence through our
+          At Agasthya SuperFoods, we proudly bring you excellence through our
           dedicated brands — Nutrix and Farmik. Each crafted to meet your
           health and wellness needs.
         </p>

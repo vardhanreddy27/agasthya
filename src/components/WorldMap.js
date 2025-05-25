@@ -11,12 +11,12 @@ export function WorldMap({ dots = [], lineColor = "rgb(157 37 45)" }) {
   const map = new DottedMap({ height: 100, grid: "diagonal" });
   const { theme } = useTheme();
 
-  const svgMap = map.getSVG({
-    radius: 0.22,
-    color: theme === "dark" ? "#FFFFFF40" : "#00000040",
-    shape: "circle",
-    backgroundColor: theme === "dark" ? "black" : "white",
-  });
+const svgMap = map.getSVG({
+  radius: 0.22,
+  color: theme === "dark" ? "#FFFFFF80" : "#000000", // Brighter white in dark mode, full black in light
+  shape: "circle",
+  backgroundColor: theme === "dark" ? "black" : "white",
+});
 
   const projectPoint = (lat, lng) => {
     const x = (lng + 180) * (800 / 360);
@@ -76,11 +76,26 @@ export function WorldMap({ dots = [], lineColor = "rgb(157 37 45)" }) {
           <g key={`points-group-${i}`}>
             {[dot.start, dot.end].map((point, index) => (
               <g key={`${index}-${i}`}>
-                <circle cx={projectPoint(point.lat, point.lng).x} cy={projectPoint(point.lat, point.lng).y} r="2" fill={lineColor} />
-                <circle cx={projectPoint(point.lat, point.lng).x} cy={projectPoint(point.lat, point.lng).y} r="2" fill={lineColor} opacity="0.5">
-                  <animate attributeName="r" from="2" to="8" dur="1.5s" begin="0s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" from="0.5" to="0" dur="1.5s" begin="0s" repeatCount="indefinite" />
-                </circle>
+              <circle
+  cx={projectPoint(point.lat, point.lng).x}
+  cy={projectPoint(point.lat, point.lng).y}
+  r="3"
+  fill={theme === "dark" ? "#FFB703" : "#8B0000"} // golden for dark mode, deep red for light
+  stroke="#ffffff"
+  strokeWidth="1"
+  opacity="1"
+/>
+<circle
+  cx={projectPoint(point.lat, point.lng).x}
+  cy={projectPoint(point.lat, point.lng).y}
+  r="3"
+  fill={theme === "dark" ? "#FFB703" : "#8B0000"}
+  opacity="0.4"
+>
+  <animate attributeName="r" from="3" to="10" dur="1.5s" begin="0s" repeatCount="indefinite" />
+  <animate attributeName="opacity" from="0.4" to="0" dur="1.5s" begin="0s" repeatCount="indefinite" />
+</circle>
+
               </g>
             ))}
           </g>

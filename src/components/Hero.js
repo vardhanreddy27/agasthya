@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 import { FaChevronDown } from 'react-icons/fa';
 
@@ -11,20 +11,23 @@ const Hero = () => {
     <div className='grid grid-cols-3 items-center px-10 pt-4 pb-1 w-full sticky top-0 z-50 bg-white'>
       {/* Left Social Icons - Aligned to Start */}
       <div className='flex gap-9 justify-start'>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/mr.flakesnutrix/" target="_blank" rel="noopener noreferrer">
           <FaInstagram className='hover:text-pink-600 transition-colors' size={20} />
         </a>
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
           <FaFacebookF className='hover:text-blue-600 transition-colors' size={20} />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/company/agasthya-super-foods-india-pvt-ltd/posts/?feedView=all&viewAsMember=true" target="_blank" rel="noopener noreferrer">
           <FaLinkedinIn className='hover:text-blue-700 transition-colors' size={20} />
+        </a>
+        <a href="https://youtube.com/@agasthyasuperfoods" target="_blank" rel="noopener noreferrer">
+          <FaYoutube className='hover:text-red-600 transition-colors' size={20} />
         </a>
       </div>
       
       {/* Centered Logo - Aligned to Center */}
-      <div className='flex justify-center'>
-        <Image src="/agasthyalogo.png" alt="Agasthya Logo" width={150} height={80} />
+      <div className='flex justify-center mb-3'>
+        <Image src="/agasthyalogo.png" alt="Agasthya Logo" width={155} height={80} />
       </div>
       
       {/* Right Menu Items - Aligned to End */}
@@ -37,7 +40,7 @@ const Hero = () => {
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
-            <Link
+          <Link
             href="/Brands"
             className='flex items-center gap-1 hover:text-gray-600 transition-colors'
           >
@@ -52,7 +55,7 @@ const Hero = () => {
         </div>
         
         <Link href="/Contact" className='hover:text-gray-600 transition-colors'>Contact</Link>
-        <Link  href="/WholesaleBulk" className='hover:text-gray-600 transition-colors'>Shop</Link>
+        <Link href="/WholesaleBulk" className='hover:text-gray-600 transition-colors'>Shop</Link>
       </nav>
     </div>
   );

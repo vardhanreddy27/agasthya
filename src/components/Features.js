@@ -57,7 +57,7 @@ const Features = () => {
   return (
     <div className="min-h-screen  px-4 sm:px-8">
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-5 text-gray-800">
-  Why <span className="text-[#9D252D]">AGASTHYA</span> SUPER FOODS
+  WHY <span className="text-[#9D252D]">AGASTHYA</span> SUPERFOODS
 </h1>
 
       <p className="text-center px-16 mb-12 text-gray-800">

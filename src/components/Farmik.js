@@ -11,7 +11,7 @@ function Farmik() {
           Welcome to Farmik
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          A wholesome sub-brand of Agasthya Super Foods, <span className="font-semibold">Farmik</span> is dedicated
+          A wholesome sub-brand of Agasthya SuperFoods, <span className="font-semibold">Farmik</span> is dedicated
           to providing fresh and nutritious dairy products that combine quality,
           purity, and the rich traditions of Indian dairy farming.
         </p>

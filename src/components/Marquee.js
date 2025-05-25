@@ -25,7 +25,9 @@ export const Marquee = ({ images, className }) => {
   transition={{
     duration: 500 + colIndex * 5, 
     ease: "linear",
-    repeat: Infinity,
+                     repeat: Infinity,
+                  repeatType: "reverse",
+
   }}
 >
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import Image from 'next/image';
 
 const Footer = () => {
@@ -22,9 +22,9 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="/" className="text-gray-600 hover:text-gray-900">Home</a></li>
               <li><a href="/about" className="text-gray-600 hover:text-gray-900">About</a></li>
-              <li><a href="/recipes" className="text-gray-600 hover:text-gray-900">Recipes</a></li>
+              <li><a href="/recipes" className="text-gray-600 hover:text-gray-900">Brands</a></li>
               <li><a href="/contact" className="text-gray-600 hover:text-gray-900">Contact</a></li>
-              <li><a href="/bulk" className="text-gray-600 hover:text-gray-900">Bulk Order</a></li>
+              <li><a href="/bulk" className="text-gray-600 hover:text-gray-900">Shop</a></li>
             </ul>
           </div>
 
@@ -35,18 +35,18 @@ const Footer = () => {
               Join the squad, follow along, share your experience. We can't wait to meet you.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" className="text-gray-600 hover:text-blue-600">
-                <FaFacebook size={24} />
-              </a>
-              <a href="https://twitter.com" className="text-gray-600 hover:text-blue-400">
-                <FaTwitter size={24} />
-              </a>
-              <a href="https://instagram.com" className="text-gray-600 hover:text-pink-600">
-                <FaInstagram size={24} />
-              </a>
-              <a href="https://linkedin.com" className="text-gray-600 hover:text-blue-800">
-                <FaLinkedin size={24} />
-              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                       <FaFacebookF className='hover:text-blue-600 transition-colors' size={20} />
+                     </a>
+             <a href="https://youtube.com/@agasthyasuperfoods" target="_blank" rel="noopener noreferrer">
+                      <FaYoutube className='hover:text-red-600 transition-colors' size={20} />
+                    </a>
+              <a href="https://www.instagram.com/mr.flakesnutrix/" target="_blank" rel="noopener noreferrer">
+                       <FaInstagram className='hover:text-pink-600 transition-colors' size={20} />
+                     </a>
+              <a href="https://www.linkedin.com/company/agasthya-super-foods-india-pvt-ltd/posts/?feedView=all&viewAsMember=true" target="_blank" rel="noopener noreferrer">
+                       <FaLinkedinIn className='hover:text-blue-700 transition-colors' size={20} />
+                     </a>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ const Footer = () => {
 
         {/* Copyright Section */}
         <div className="text-center text-gray-600 pb-3">
-          <p>&copy; 2025 Agasthya Super Foods Pvt Ltd. All rights reserved.</p>
+          <p>&copy; 2025 Agasthya SuperFoods Pvt Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>

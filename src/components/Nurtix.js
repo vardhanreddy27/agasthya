@@ -11,7 +11,7 @@ function Nurtix() {
           Welcome to Nutrix
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          A wholesome sub-brand of Agasthya Super Foods, Nutrix is dedicated to delivering
+          A wholesome sub-brand of Agasthya SuperFoods, Nutrix is dedicated to delivering
           premium-quality oats-based products that blend health and taste in every bite.
         </p>
       </div>

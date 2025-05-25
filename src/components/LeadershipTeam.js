@@ -36,52 +36,26 @@ const LeadershipTeam = () => {
         With years of combined experience, our team leads with expertise.
       </p>
 
-      <div className="mt-16 space-y-16">
-        {/* First row with 3 cards */}
-        <div className="flex justify-center gap-12 flex-wrap">
-          {teamMembers.slice(0, 3).map((member, index) => (
-            <div
-              key={index}
-              className="bg-white  shadow-2xl rounded-xl p-8 text-center w-[320px] transition-transform hover:scale-105"
-            >
-              <div className="relative w-[180px] h-[180px] mx-auto rounded-full overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                  sizes="180px"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold mt-6 text-gray-900">{member.name}</h3>
-              <p className="text-base text-gray-600">{member.position}</p>
-              <p className="text-sm text-gray-500 mt-1">{member.description}</p>
+      {/* Team Cards Row */}
+      <div className="mt-16 flex flex-wrap justify-center gap-8">
+        {teamMembers.map((member, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-xl rounded-xl p-4 text-center w-[180px] transition-transform hover:scale-105"
+          >
+            <div className="relative w-[90px] h-[90px] mx-auto rounded-full overflow-hidden">
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover"
+                sizes="90px"
+              />
             </div>
-          ))}
-        </div>
-
-        {/* Second row with 2 cards centered below */}
-        <div className="flex justify-center gap-12 flex-wrap">
-          {teamMembers.slice(3).map((member, index) => (
-            <div
-              key={index + 3}
-              className="bg-white shadow-2xl rounded-xl p-8 text-center w-[320px] transition-transform hover:scale-105"
-            >
-              <div className="relative w-[180px] h-[180px] mx-auto rounded-full overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                  sizes="180px"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold mt-6 text-gray-900">{member.name}</h3>
-              <p className="text-base text-gray-600">{member.position}</p>
-              <p className="text-sm text-gray-500 mt-1">{member.description}</p>
-            </div>
-          ))}
-        </div>
+            <h3 className="text-lg font-semibold mt-4 text-gray-900">{member.name}</h3>
+            <p className="text-xs text-gray-600 mt-1">{member.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ const ingredients = [
   { name: "Pumpkin & Sunflower seeds", description: "Boosts heart health", image: "/pumpkin.png" },
   { name: "Almonds & Cashews", description: "Lowers cholesterol levels", image: "/almonds.png" },
   { name: "Mixed Berries", description: "Anti-inflammatory properties", image: "/raisins.png" },
-  { name: "Flak,Chia & Watermelon seeds", description: "High in Omega-3 and fiber", image: "/chiaseeds.png" },
+  { name: "Flax,Chia & Watermelon seeds", description: "High in Omega-3 and fiber", image: "/chiaseeds.png" },
 ];
 
 function Ingredients() {

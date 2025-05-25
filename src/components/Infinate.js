@@ -27,7 +27,7 @@ function InfiniteShowcase() {
   ];
 
   return (
-    <div style={styles.wrapper}>
+    <div style={styles.wrapper} className='mb-5'>
       <h2 className="text-center text-3xl font-bold mb-14 text-gray-800">
         Proudly Showcasing at Global Food & Innovation Platforms
       </h2>
@@ -54,7 +54,7 @@ const styles = {
     overflow: 'hidden',
     width: '100%',
     padding: '50px',
-    background: '#fffbe6',
+    background: '#F6F1EB',
   },
   container: {
     display: 'flex',
@@ -72,8 +72,8 @@ const styles = {
     width: '300px', // Match the image width
   },
   image: {
-    width: '220px',
-    height: '130px',
+    width: '420px',
+    height: '230px',
     objectFit: 'contain',
     borderRadius: '10px',
     marginBottom: '10px', // Space between image and caption

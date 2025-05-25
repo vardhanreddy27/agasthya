@@ -47,12 +47,12 @@ export function FeaturesSectionDemo() {
 
 
   return (
-    <div className="relative z-10 py-10 mx-auto p-6">
+    <div className="relative z-10 py-10 mx-auto p-5">
       {/* Contact Us Header */}
       <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-neutral-800">      Why To Choose Agasthya
           </h2>
-          <p className=" text-neutral-800 p-5"> Committed to Your Health and Wellness</p>
+          <p className=" text-neutral-800 pt-3"> Committed to Your Health and Wellness</p>
         </div>
       {/* Features Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

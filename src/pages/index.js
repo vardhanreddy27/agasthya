@@ -29,11 +29,13 @@ function index() {
 <Ingredients />
       <HeroSection />
       <Certified />
-      <LeadershipTeam />
+            <Infinate />
+
       <Features />
       <Banner />
       <TimelineDemo />
-      <Infinate />
+            <LeadershipTeam />
+
       <WorldMapDemo />
       <SubscriptionSection />
       <Footer />
