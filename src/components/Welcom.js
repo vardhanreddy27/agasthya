@@ -11,7 +11,7 @@ function Welcome() {
         {/* Left Column */}
         <div className="lg:w-1/3 mb-10 lg:mb-0 p-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Welcome to Agastya SuperFoods
+            Welcome Agastya SuperFoods
           </h1>
           <p className="text-lg md:text-xl mb-6">
             Discover the fusion of tradition and innovation with Agastya Superfoods.
