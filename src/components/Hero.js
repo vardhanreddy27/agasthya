@@ -33,7 +33,7 @@ const Hero = () => {
       {/* Right Menu Items - Aligned to End */}
       <nav className='flex gap-7 justify-end relative'>
         <Link href="/" className='hover:text-gray-600 transition-colors'>Home</Link>
-        <Link href="/About" className='hover:text-gray-600 transition-colors'>About</Link>
+        <Link href="/" className='hover:text-gray-600 transition-colors'>About</Link>
         
         <div 
           className='relative group'
@@ -41,21 +41,21 @@ const Hero = () => {
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
           <Link
-            href="/Brands"
+            href="/"
             className='flex items-center gap-1 hover:text-gray-600 transition-colors'
           >
             Brands <FaChevronDown size={12} />
           </Link>
           {isDropdownOpen && (
             <div className='absolute top-6 left-0 w-32 bg-white shadow-md rounded-md py-2 group-hover:block'>
-              <Link href='/Nutrixmenu' className='block px-4 py-2 hover:bg-gray-100'>Nutrix</Link>
-              <Link href='/Farmikmenu' className='block px-4 py-2 hover:bg-gray-100'>Farmik</Link>
+              <Link href='/' className='block px-4 py-2 hover:bg-gray-100'>Nutrix</Link>
+              <Link href='/' className='block px-4 py-2 hover:bg-gray-100'>Farmik</Link>
             </div>
           )}
         </div>
         
         <Link href="/Contact" className='hover:text-gray-600 transition-colors'>Contact</Link>
-        <Link href="/WholesaleBulk" className='hover:text-gray-600 transition-colors'>Shop</Link>
+        <Link href="/" className='hover:text-gray-600 transition-colors'>Shop</Link>
       </nav>
     </div>
   );

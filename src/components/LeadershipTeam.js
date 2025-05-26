@@ -4,22 +4,22 @@ const teamMembers = [
   {
     name: "Mr. Ganesh",
     description: "CFO Operations",
-    image: "/ganesh.png",
+    image: "/ganesh.webp",
   },
   {
     name: "Mr. Amarnath",
     description: "General Manager",
-    image: "/amarnath.png",
+    image: "/amarnath.webp",
   },
   {
     name: "Mr. Charan",
     description: "Director",
-    image: "/charan.png",
+    image: "/charan.webp",
   },
   {
     name: "Ms. Manvitha",
     description: "Exports Manager",
-    image: "/manvitha.png",
+    image: "/manvitha.webp",
   },
   {
     name: "Mr. Varun",

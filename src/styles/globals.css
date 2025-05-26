@@ -129,7 +129,7 @@ height: 87vh;
 }
 .overlay-box {
   position: relative;
-  background-image: url('/berryblastwithbg.png');
+  background-image: url('/berryblastwithbg.webp');
   background-size: cover;
   background-position: center;
   color: white;
@@ -163,7 +163,7 @@ height: 87vh;
 
 
 .image-box {
-  background-image: url('/berryblastwithbg.png');
+  background-image: url('/berryblastwithbg.webp');
   background-size: cover;
   background-position: center;
   border-radius: 12px; /* Add this */
@@ -173,7 +173,7 @@ height: 87vh;
 
 
 .div1 {
-  background-image: url('/cerealflakes.png'); /* New image */
+  background-image: url('/berryblastwithbg.webp'); /* New image */
 }
 
 /* Grid positions */
@@ -193,7 +193,7 @@ height: 87vh;
 }
 
 .div17 {
-  background-image: url('/packages.png'); /* New image */
+  background-image: url('/packages.webp'); /* New image */
 
   grid-column-start: 3;
   grid-row-start: 3;

@@ -22,7 +22,7 @@ function Products() {
     { title: "White Oats", imageUrl: "/whiteoats.jpg" },
     { title: "Honey & Almond Corn Flakes", imageUrl: "/honeyandalmondflakes.jpg" },
     { title: "Nutty Delight Millet Muesli", imageUrl: "/MilletMuesliNuttyDelight.jpg" },
-    { title: "Berry Burst Millet Muesli", imageUrl: "/berryblastwithbg.png" },
+    { title: "Berry Burst Millet Muesli", imageUrl: "/berryblastwithbg.webp" },
     { title: "Belgian Dark Chocolate Millet Muesli", imageUrl: "/MilletMuesliBelgianDarkChocolate.jpg" },
     { title: "Multi Millet Chocos", imageUrl: "/chocoflakes.jpg" },
     { title: "Ragi Chocos", imageUrl: "/ragichoco.jpg" },

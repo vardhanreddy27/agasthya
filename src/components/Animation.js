@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const images = [
-  "/berryblastwithbg.png",
-  "/berryblastwithbg.png",
-  "/berryblastwithbg.png",
+  "/berryblastwithbg.webp",
+  "/berryblastwithbg.webp",
+  "/berryblastwithbg.webp",
 ];
 
 export default function Animation() {

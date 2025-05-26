@@ -4,43 +4,22 @@ import { Marquee } from "./Marquee";
 
 export function ThreeDMarqueeDemo() {
   const images = [
-    "/flakesbanner.png",
-    "/farmik.png",
-    "/snacksbanner.png",
-    "/snacksbanner.png",
-    "/chocoflakesgpt.png",
-    "/berryblastwithbg.png",
-    "/farmik.png",
-    "/berryblastwithbg.png",
-    "/snacksbanner.png",
-    "/farmik.png",
-    "/berryblastwithbg.png",
+    "/flakesbanner.webp",
+    "/farmik.webp",
+    "/snacksbanner.webp",
+    "/chocoflakesgpt.webp",
+    "/berryblastwithbg.webp",
     "/MilletMuesliBelgianDarkChocolate.jpg",
-    "/banner4.png",
-    "/farmik.png",
-    "/farmik.png",
-    "/berryblastwithbg.png",
-    "/chocoflakesgpt.png",
-    "/MilletMuesliBelgianDarkChocolate.jpg",
-    "/berryblastwithbg.png",
-    "/chocoflakesgpt.png",
-    "/MilletMuesliBelgianDarkChocolate.jpg",
-    "/berryblastwithbg.png",
-    "/MilletMuesliBelgianDarkChocolate.jpg",
-    "/berryblastwithbg.png",
-    "/berryblastwithbg.png",
-    "/chocoflakesgpt.png",
-    "/berryblastwithbg.png",
-    "/MilletMuesliBelgianDarkChocolate.jpg",
-    "/berryblastwithbg.png",
-    "/berryblastwithbg.png",
-    "/MilletMuesliBelgianDarkChocolate.jpg",
+    "/banner4.jpg",
   ];
 
+  // Repeat the images for a seamless marquee effect
+  const repeatedImages = Array.from({ length: 4 }, () => images).flat();
+
   return (
-    <div className="relative mx-auto  flex screenheight w-full  flex-col items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 z-10 h-full w-full bg-black/10 dark:bg-black/40" />
-      <Marquee className="pointer-events-none absolute inset-0 h-full w-full" images={images} />
+    <div className="relative mx-auto flex screenheight w-full flex-col items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-10 h-full w-full bg-black/10 dark:bg-black/40" />
+      <Marquee className="pointer-events-none absolute inset-0 h-full w-full" images={repeatedImages} />
     </div>
   );
 }

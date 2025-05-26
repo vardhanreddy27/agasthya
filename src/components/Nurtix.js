@@ -20,7 +20,7 @@ function Nurtix() {
       <div className="max-w-6xl mb-10 mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="relative w-full h-72 md:h-[400px]">
           <Image
-            src="/berryblastwithbg.png"
+            src="/berryblastwithbg.webp"
             alt="Nutrix Oats"
             layout="fill"
             objectFit="cover"

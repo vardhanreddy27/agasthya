@@ -105,12 +105,12 @@ function VelocityScrollColumn({ defaultVelocity = 0.5, numColumns = 1, items, on
 }
 export default function HeroSection() {
   const cards = [
-{ image: "/farmik.png", title: "Berry Blast", description: "Delicious berry flavor with 21 vital nutrients." },
-{ image: "/banner4.png", title: "Berry Blast", description: "A fruity milk mix fortified for growing kids." },
-{ image: "/farmik.png", title: "Berry Blast", description: "Bursting with berry goodness and essential vitamins." },
-{ image: "/berryblastwithbg.png", title: "Berry Blast", description: "Tasty, nutritious, and perfect for daily milk time." },
-{ image: "/banner4.png", title: "Berry Blast", description: "Fuel up with antioxidants, protein & calcium in every sip." },
-{ image: "/makana.png", title: "Berry Blast", description: "Tasty, nutritious, and perfect for daily milk time." },
+{ image: "/farmik.webp", title: "Berry Blast", description: "Delicious berry flavor with 21 vital nutrients." },
+{ image: "/banner4.jpg", title: "Berry Blast", description: "A fruity milk mix fortified for growing kids." },
+{ image: "/farmik.webp", title: "Berry Blast", description: "Bursting with berry goodness and essential vitamins." },
+{ image: "/berryblastwithbg.webp", title: "Berry Blast", description: "Tasty, nutritious, and perfect for daily milk time." },
+{ image: "/banner4.jpg", title: "Berry Blast", description: "Fuel up with antioxidants, protein & calcium in every sip." },
+{ image: "/makana.webp", title: "Berry Blast", description: "Tasty, nutritious, and perfect for daily milk time." },
 
 
   ];

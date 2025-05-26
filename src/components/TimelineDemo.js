@@ -32,7 +32,7 @@ At Agasthya Superfoods, we proudly collaborate with trusted, hand-picked farmers
         <div className="mb-14">
           <div className="mb-4">
             <Image
-              src="/farmtofactory.jpg"
+              src="/farmtofactory.webp"
               alt="Farm to Factory"
               width={1000}
               height={imageHeight}
@@ -50,7 +50,7 @@ From farm to factory, we prioritize sustainability at every step. Our ingredient
         <div className="mb-8">
           <div className="mb-4">
             <Image
-              src="/milling.jpg"
+              src="/milling.webp"
               alt="Enhanced Extrusion Packing"
               width={1000}
               height={imageHeight}

@@ -9,7 +9,7 @@ function Banner() {
       <div className="md:w-1/2 w-full mb-6 md:mb-0 flex justify-center">
         <div className="w-[300px] md:w-[400px]">
           <Image
-            src="/bannertest.png"
+            src="/bannertest.webp"
             alt="Mr. Flakes Product Lineup"
             layout="responsive"
             width={300}
