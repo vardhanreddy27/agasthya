@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ThreeDMarqueeDemo } from './ThreeDMarqueeDemo';
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import { PiHandHeartDuotone } from "react-icons/pi";
@@ -10,11 +11,13 @@ function Welcome() {
 <div className="w-full flex flex-col lg:flex-row items-center justify-between">
         {/* Left Column */}
         <div className="lg:w-1/3 mb-10 lg:mb-0 p-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Welcome Agastya SuperFoods
+          <div className='flex pl-2 mb-3'>
+                 <Image src="/agasthyalogo.png" alt="Agasthya Logo" width={155} height={80} />
+               </div> <h1 className="text-4xl md:text-5xl font-bold mb-4">
+           Agastya SuperFoods
           </h1>
-          <p className="text-lg md:text-xl mb-6">
-            Discover the fusion of tradition and innovation with Agastya Superfoods.
+          <p className="text-lg md:text-xl pb-5">
+        Where Superfoods Begins and Wellness Follows
           </p>
           {/* Button and Icons in Same Line */}
           <div className="flex items-center gap-4">
