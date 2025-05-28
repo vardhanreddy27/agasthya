@@ -11,7 +11,6 @@ import LeadershipTeam from '@/components/LeadershipTeam';
 import SubscriptionSection from '@/components/SubscriptionSection';
 import Banner from '@/components/Banner';
 import Ingredients from '@/components/Ingredients';
-import { ThreeDMarqueeDemo } from '@/components/ThreeDMarqueeDemo';
 import { FeaturesSectionDemo } from '@/components/FeaturesSectionDemo';
 import HeroSection from '@/components/HeroSection';
 import Band from '@/components/Band';
