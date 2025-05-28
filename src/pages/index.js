@@ -15,13 +15,11 @@ import { ThreeDMarqueeDemo } from '@/components/ThreeDMarqueeDemo';
 import { FeaturesSectionDemo } from '@/components/FeaturesSectionDemo';
 import HeroSection from '@/components/HeroSection';
 import Band from '@/components/Band';
-import Animation from '@/components/Animation';
 import Welcome from '@/components/Welcom';
 function index() {
   return (
     <div>
       <Hero />
-      {/* <Animation /> */}
       <Welcome />
 
       <Band />

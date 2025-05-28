@@ -104,16 +104,52 @@ function VelocityScrollColumn({ defaultVelocity = 0.5, numColumns = 1, items, on
   );
 }
 export default function HeroSection() {
-  const cards = [
-{ image: "/farmik.webp", title: "Berry Blast", description: "Delicious berry flavor with 21 vital nutrients." },
-{ image: "/banner4.jpg", title: "Berry Blast", description: "A fruity milk mix fortified for growing kids." },
-{ image: "/farmik.webp", title: "Berry Blast", description: "Bursting with berry goodness and essential vitamins." },
-{ image: "/berryblastwithbg.webp", title: "Berry Blast", description: "Tasty, nutritious, and perfect for daily milk time." },
-{ image: "/banner4.jpg", title: "Berry Blast", description: "Fuel up with antioxidants, protein & calcium in every sip." },
-{ image: "/makana.webp", title: "Berry Blast", description: "Tasty, nutritious, and perfect for daily milk time." },
+const cards = [
+  {
+    image: "/farmik.webp",
+    title: "Berry Blast",
+    description: "Delicious berry flavor with 21 vital nutrients.",
+    tagline: "Berrylicious nutrition for every sip!",
+    benefits: "Antioxidant-rich, boosts immunity, loved by kids"
+  },
+  {
+    image: "/banner4.jpg",
+    title: "Kids’ Milk Mix",
+    description: "A fruity milk mix fortified for growing kids.",
+    tagline: "Daily nutrition made fun and tasty!",
+    benefits: "Supports growth, enhances focus, kid-approved taste"
+  },
+  {
+    image: "/farmik.webp",
+    title: "Berry Energy Mix",
+    description: "Bursting with berry goodness and essential vitamins.",
+    tagline: "Power-packed mix for daily vitality.",
+    benefits: "Energizes daily routine, supports stamina, refreshing flavor"
+  },
+  {
+    image: "/berryblastwithbg.webp",
+    title: "Morning Berry Boost",
+    description: "Tasty, nutritious, and perfect for daily milk time.",
+    tagline: "Start strong, stay strong — with berries.",
+    benefits: "Bone support, mood booster, child-friendly"
+  },
+  {
+    image: "/banner4.jpg",
+    title: "Antioxidant Fuel",
+    description: "Fuel up with antioxidants, protein & calcium in every sip.",
+    tagline: "Recharge your body — naturally.",
+    benefits: "Strengthens immunity, supports recovery, rich flavor"
+  },
+  {
+    image: "/makana.webp",
+    title: "Makana Energy Bites",
+    description: "Tasty, nutritious, and perfect for daily milk time.",
+    tagline: "Snack smart, live better.",
+    benefits: "Low-calorie, high-fiber, clean energy source"
+  }
+];
 
 
-  ];
   const [selectedItem, setSelectedItem] = useState(null);
   const handleCardClick = (item) => setSelectedItem(item);
   const closeModal = () => setSelectedItem(null);
@@ -170,7 +206,7 @@ Swipe through our newest launches and taste the future of nutrition!
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative"
+        className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative overflow-y-auto max-h-[90vh]"
       >
         <button
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
@@ -186,9 +222,12 @@ Swipe through our newest launches and taste the future of nutrition!
         <h2 className="text-xl font-semibold mb-2 text-gray-800">
           {selectedItem.title}
         </h2>
-        <p className="text-gray-600 text-sm mb-4">{selectedItem.description}</p>
-
-        {/* ✅ Shop Now Button */}
+        <p className="text-sm italic text-[rgb(157,37,45)] mb-2">
+          {selectedItem.tagline}
+        </p>
+            <p className="text-gray-600 text-sm mb-4">
+          <strong>Benefits:</strong> {selectedItem.benefits}
+        </p>
         <button
           className="bg-[rgb(157,37,45)] text-white px-5 py-2 rounded-full text-sm font-medium hover:opacity-90 transition w-full"
           onClick={() => {
@@ -201,6 +240,7 @@ Swipe through our newest launches and taste the future of nutrition!
     </motion.div>
   )}
 </AnimatePresence>
+
 
     </section>
   );

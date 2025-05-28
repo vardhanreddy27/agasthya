@@ -80,7 +80,7 @@ From farm to factory, we prioritize sustainability at every step. Our ingredient
         <div className="mb-14">
           <div className="mb-4">
             <Image
-              src="/cleaning.jpg"
+              src="/factroy1.webp"
               alt="Quality Check & Packing"
               width={1000}
               height={imageHeight}
