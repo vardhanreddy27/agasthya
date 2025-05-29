@@ -12,7 +12,7 @@ const Certified = () => {
   ];
 
   return (
-    <section className="flex flex-col md:flex-row items-center mt-28 bg-white shadow-xl border border-gray-200">
+    <section className="mt-10 flex flex-col md:flex-row items-center  bg-white shadow-xl border border-gray-200">
       {/* Left Section */}
       <div className="md:w-1/3 space-y-4 p-6">
         <h2 className="text-2xl font-bold">Our certifications say it all.</h2>

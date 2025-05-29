@@ -55,64 +55,68 @@ const Features = () => {
   ];
 
   return (
-    <div className="min-h-screen  px-4 sm:px-8">
-      <h1 className="text-4xl md:text-5xl font-bold text-center mb-5 text-gray-800">
-  WHY <span className="text-[#9D252D]">AGASTHYA</span> SUPERFOODS
-</h1>
+  <div className="pb-7 pt-16 px-4">
+    <h1 className="text-4xl md:text-5xl font-bold text-center mb-5 text-gray-800">
+      WHY <span className="text-[#9D252D]">AGASTHYA</span> SUPERFOODS
+    </h1>
 
-      <p className="text-center px-16 mb-12 text-gray-800">
-        Agasthya Superfoods was founded on a simple belief that a diverse range
-        of grains and superfoods contribute to overall well-being. We are
-        committed to providing high-quality, nutrient-rich products that
-        support a healthier lifestyle.
-      </p>
-      <div className="mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map((feature, index) => (
-          <div
-            key={index}
-            className="p-3 rounded-xl cursor-pointer"
-            onMouseEnter={() => handleHover(index)}
-          >
-            <div className="h-20 flex">
-              <div
-                className={`w-28 h-14 flex items-center p-1 rounded-full -rotate-45 ${
-                  toggles[index] ? "bg-red-100" : "bg-red-50"
-                } overflow-hidden`}
+    <p className="text-center max-w-3xl mx-auto mb-12 text-gray-800">
+      Agasthya Superfoods was founded on a simple belief that a diverse range
+      of grains and superfoods contribute to overall well-being. We are
+      committed to providing high-quality, nutrient-rich products that
+      support a healthier lifestyle.
+    </p>
+
+    <div className="mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl">
+      {features.map((feature, index) => (
+        <div
+          key={index}
+          className="p-3 rounded-xl cursor-pointer"
+          onMouseEnter={() => handleHover(index)}
+        >
+          <div className="h-20 flex">
+            <div
+              className={`w-28 h-14 flex items-center p-1 rounded-full -rotate-45 ${
+                toggles[index] ? "bg-red-100" : "bg-red-50"
+              } overflow-hidden`}
+              style={{
+                transformOrigin: "center",
+                boxShadow:
+                  "inset 4px 4px 10px rgba(0, 0, 0, 0.3), inset -4px -4px 10px rgba(255, 255, 255, 0.3)",
+              }}
+            >
+              <img
+                src={images[index]}
+                alt={feature.title}
+                className="w-12 h-12 rounded-full transition-transform duration-500"
                 style={{
-                  transformOrigin: "center",
-                  boxShadow:
-                    "inset 4px 4px 10px rgba(0, 0, 0, 0.3), inset -4px -4px 10px rgba(255, 255, 255, 0.3)",
+                  transform: toggles[index]
+                    ? "translateX(56px)"
+                    : "translateX(0)",
                 }}
-              >
-                <img
-                  src={images[index]}
-                  alt={feature.title}
-                  className="w-12 h-12 rounded-full transition-transform duration-500"
-                  style={{
-                    transform: toggles[index] ? "translateX(56px)" : "translateX(0)",
-                  }}
-                />
-              </div>
+              />
             </div>
-
-            <h2
-              ref={(el) => (textRefs.current[index] = el)}
-              className="text-2xl font-bold mt-6 text-gray-800 opacity-80"
-            >
-              {feature.title}
-            </h2>
-
-            <p
-              ref={(el) => (paraRefs.current[index] = el)}
-              className="leading-relaxed text-gray-800 opacity-50"
-            >
-              {feature.text}
-            </p>
           </div>
-        ))}
-      </div>
+
+          <h2
+            ref={(el) => (textRefs.current[index] = el)}
+            className="text-2xl font-bold mt-6 text-gray-800 opacity-80"
+          >
+            {feature.title}
+          </h2>
+
+          <p
+            ref={(el) => (paraRefs.current[index] = el)}
+            className="leading-relaxed text-gray-800 opacity-50"
+          >
+            {feature.text}
+          </p>
+        </div>
+      ))}
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Features;
