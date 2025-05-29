@@ -20,7 +20,6 @@ function index() {
     <div>
       <Hero />
       <Welcome />
-
       <Band />
 <FeaturesSectionDemo />
 <Ingredients />

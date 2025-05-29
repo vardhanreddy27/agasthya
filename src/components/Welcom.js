@@ -12,7 +12,7 @@ function Welcome() {
         {/* Left Column */}
         <div className="lg:w-1/3 mb-10 lg:mb-0 p-10">
           <div className='flex pl-2 mb-3'>
-                 <Image src="/agasthyalogo.png" alt="Agasthya Logo" width={155} height={80} />
+                 <Image src="/agasthyalogo.svg" alt="Agasthya Logo" width={155} height={80} />
                </div> <h1 className="text-4xl md:text-5xl font-bold mb-4">
            Agastya SuperFoods
           </h1>
