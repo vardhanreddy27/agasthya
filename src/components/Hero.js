@@ -43,7 +43,7 @@ const Hero = () => {
         {/* Right - Navigation Links */}
         <nav className='flex gap-7 justify-end relative'>
           <Link href="/" className='hover:text-gray-600 transition-colors'>Home</Link>
-          <Link href="/" className='hover:text-gray-600 transition-colors'>About</Link>
+          <Link href="/About" className='hover:text-gray-600 transition-colors'>About</Link>
 
           <div
             className='relative group'
@@ -81,7 +81,7 @@ const Hero = () => {
       {isMobileMenuOpen && (
         <div className='md:hidden flex flex-col bg-white px-6 pb-4 gap-3 text-sm'>
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+          <Link href="/About" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
 
           {/* Dropdown for Brands in Mobile */}
           <details>

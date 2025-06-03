@@ -38,22 +38,18 @@ function Aboutus() {
         {/* Text Section */}
         <div className="w-full md:w-1/2 text-gray-700 leading-relaxed space-y-4 pl-9">
           <h1 className="text-2xl font-bold">Our Mission</h1>
-          <p>
-            At <span className="font-semibold">Mr. Flakes Nutrix</span>, we offer a delicious and nutritious range of cereals made from wholesome grains like oats, wheat, corn, and rice. 
-            Designed to cater to the diverse nutritional needs of every family member, our cereals provide the perfect balance of taste and health.
-          </p>
+      At Agasthya Superfoods, we are dedicated to crafting a wholesome range of superfood-based cereals and snacks made from nutrient-rich ingredients like millets, quinoa, oats, and whole grains. Our mission is to promote balanced nutrition and healthy living for individuals and families across all age groups.
 
-          <p>
-            Whether it's a quick breakfast for busy professionals, a nourishing meal for growing children, or a wholesome option for homemakers, 
-            <span className="font-semibold"> Mr. Flakes Nutrix</span> has something for everyone.
-          </p>
+Whether it’s a quick, energizing breakfast for working professionals, a protein-rich snack for growing kids, or a clean-label option for health-conscious homemakers, Agasthya Superfoods delivers taste without compromise.
+
+Our curated product lineup including Millet Muesli, Quinoa Flakes, Choco Fills, Protein Bars, and more—is trusted by families who value both functional health and flavorful variety. With every serving, we bring together nature’s finest ingredients and a commitment to better wellness, one bite at a time.
 
           <p>
             Our premium selection includes{" "}
             <span className="text-[rgb(157,37,45)] font-semibold">
               Nutrix Oats, Nutrix Muesli, Nutrix Choco Flakes
             </span>, 
-            and more—trusted by families who prioritize both taste and well-being. 
+            and more trusted by families who prioritize both taste and well-being. 
             With every bite, experience the goodness of quality ingredients and a commitment to better health.
           </p>
         </div>
@@ -61,9 +57,9 @@ function Aboutus() {
         {/* Image Section */}
         <div className="w-full md:w-1/2 p-9">
           <img
-            src="https://cdn.shopify.com/s/files/1/0728/7996/4380/files/Group_496h.webp?v=1733315771&width=1440"
+            src="/aboutus.png"
             alt="Mr. Flakes Nutrix Products"
-            className="w-full h-[300px] md:h-[400px] object-cover rounded-lg shadow-lg"
+            className=""
           />
         </div>
       </div>
