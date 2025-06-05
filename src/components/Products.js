@@ -1,38 +1,88 @@
 import React from 'react';
 
 function Products() {
-  const Card = ({ imageUrl, title }) => {
+  const Card = ({ imageUrl, title, description }) => {
+    let label = '';
+    let value = '';
+
+    if (description && description.includes(':')) {
+      [label, value] = description.split(':');
+    }
+
     return (
-      <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
-        <div className="relative aspect-square overflow-hidden">
+      <div className="bg-white rounded-2xl overflow-hidden shadow-md transition duration-300 max-w-[350px] mx-auto flex flex-col">
+        {/* Image */}
+        <div className="h-[300px] overflow-hidden group">
           <img
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             src={imageUrl}
             alt={title}
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent p-4 text-white">
-            <h3 className="text-lg font-semibold">{title}</h3>
-          </div>
+        </div>
+
+        {/* Title & Description */}
+        <div className="p-4 text-center flex-1 flex flex-col justify-center">
+          <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
+          {description && (
+            <p className="text-sm text-gray-600">
+               <strong>{label}:{' '}</strong>
+             {value}
+            </p>
+          )}
         </div>
       </div>
     );
   };
 
   const products = [
-    { title: "White Oats", imageUrl: "/whiteoats.jpg" },
-    { title: "Honey & Almond Corn Flakes", imageUrl: "/honeyandalmondflakes.jpg" },
-    { title: "Nutty Delight Millet Muesli", imageUrl: "/MilletMuesliNuttyDelight.jpg" },
-    { title: "Berry Burst Millet Muesli", imageUrl: "/berryblastwithbg.webp" },
-    { title: "Belgian Dark Chocolate Millet Muesli", imageUrl: "/MilletMuesliBelgianDarkChocolate.jpg" },
-    { title: "Multi Millet Chocos", imageUrl: "/chocoflakes.jpg" },
-    { title: "Ragi Chocos", imageUrl: "/ragichoco.jpg" },
-    { title: "Multi Millet Vermicelli", imageUrl: "/multimilletvermicelli.jpg" },
-    { title: "Peanut Coco Bar", imageUrl: "/proteinbar.jpg" },
+    { title: "Corn Flakes", imageUrl: "/cornflakes.webp" },
+    { title: "Frosted Flakes", imageUrl: "/frostedflakes.webp" },
+    {
+      title: "Quinoa cereals",
+      imageUrl: "/quinoa.webp",
+      description: "Flavors :Honey & Almond , Cereal Flakes (No Added Sugar) , Fruit & Nut (No added Sugar) ,Fruit & Nut  ",
+    },    {
+      title: "Kids Range",
+      imageUrl: "/kids.webp",
+      description: "Flavors : Choco Flakes , Froot Loops , Choco Fills",
+    },  {
+      title: "Millet Muesli",
+      imageUrl: "/Muesli.webp",
+      description: "Flavors :Berry Blast , Dark Chocolate , Nutty Crunchy ",
+    }, {
+      title: "Porridges",
+      imageUrl: "/porridge.webp",
+      description: "Flavors :Apple-cinnamon , Mixed Chocolate , Mixed Vegetables ,Tomato Tangy ",
+    },
+     {
+      title: "NutriFusion Health Mix",
+      imageUrl: "/farmik.webp",
+      description: "Flavors : Vanilla , Strawberry",
+    },
+   {
+      title: "Corn Rings",
+      imageUrl: "/rings.webp",
+      description: "Flavors : Cheese , Sour Creamy & Onion , Pizza , Barbique  ",
+    }, {
+      title: "Wavy Chips",
+      imageUrl: "/wavy.webp",
+      description: "Flavors : Barbique , Sweet Chilli , Lemon , Sour Cream  ",
+    }, {
+      title: "Corn Balls",
+      imageUrl: "/balls.webp",
+      description: "Flavors : BBQ Sweet Chilli , Pizza , Cheese , Sour Cream Onion  ",
+    },
+    { title: "Multi Millet Vermicelli", imageUrl: "/multimilletvermicelli.webp" },
+    {
+      title: "Bars",
+      imageUrl: "/bars.webp",
+      description: "Flavors : Meal Replacement Bar , Almond Power Crunch Energy Bar , Cranberry Choco Energy Bar , Peanut Cocoa Protein Bar",
+    },
   ];
 
   return (
     <section className="bg-[#fdfdfd] py-16 px-4 sm:px-16">
-      {/* Title */}
+      {/* Section Header */}
       <div className="text-center mb-6">
         <h2 className="text-4xl font-bold text-gray-800 relative inline-block">
           <span className="relative z-10 bg-white px-3">Our Products</span>
@@ -46,7 +96,12 @@ function Products() {
       {/* Product Grid */}
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
         {products.map((item, index) => (
-          <Card key={index} imageUrl={item.imageUrl} title={item.title} />
+          <Card
+            key={index}
+            imageUrl={item.imageUrl}
+            title={item.title}
+            description={item.description}
+          />
         ))}
       </div>
     </section>

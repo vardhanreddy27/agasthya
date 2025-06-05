@@ -149,8 +149,8 @@ const ContactBanner = () => {
                 <div className="pt-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="font-medium text-gray-700">Email:</span>
-                    <a href="mailto:manvithareddy.nare@agasthya.co.in" className="text-[rgb(157,37,45)] hover:underline">
-                      manvithareddy.nare@agasthya.co.in
+                    <a href="mailto:info@agasthya.co.in" className="text-[rgb(157,37,45)] hover:underline">
+                      info@agasthya.co.in
                     </a>
                   </div>
                   <div className="flex items-center gap-2">

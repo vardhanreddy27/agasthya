@@ -28,15 +28,15 @@ function Aboutus() {
             Witnessing the challenges faced by many, he knew it was time to step in with a holistic approach that truly makes a difference.
           </p>
           <p>
-            That’s how AGASTHYA was born—a brand dedicated to empowering individuals to embrace a healthier lifestyle and discover the healthier side of life.
+            That’s how AGASTHYA was born a brand dedicated to empowering individuals to embrace a healthier lifestyle and discover the healthier side of life.
           </p>
         </div>
       </div>
 
       {/* Image & Text Section */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-10">
+<div className="flex flex-col-reverse md:flex-row items-center justify-center gap-8 mt-10">
         {/* Text Section */}
-        <div className="w-full md:w-1/2 text-gray-700 leading-relaxed space-y-4 pl-9">
+<div className="w-full md:w-1/2 text-gray-700 leading-relaxed space-y-4 md:pl-9 pl-0">
           <h1 className="text-2xl font-bold">Our Mission</h1>
       At Agasthya Superfoods, we are dedicated to crafting a wholesome range of superfood-based cereals and snacks made from nutrient-rich ingredients like millets, quinoa, oats, and whole grains. Our mission is to promote balanced nutrition and healthy living for individuals and families across all age groups.
 
@@ -57,7 +57,7 @@ Our curated product lineup including Millet Muesli, Quinoa Flakes, Choco Fills, 
         {/* Image Section */}
         <div className="w-full md:w-1/2 p-9">
           <img
-            src="/aboutus.png"
+            src="/aboutus.webp"
             alt="Mr. Flakes Nutrix Products"
             className=""
           />

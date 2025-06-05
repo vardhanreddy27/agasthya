@@ -51,15 +51,15 @@ const Hero = () => {
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
             <Link
-              href="/"
+              href="/Brands"
               className='flex items-center gap-1 hover:text-gray-600 transition-colors'
             >
               Brands <FaChevronDown size={12} />
             </Link>
             {isDropdownOpen && (
               <div className='absolute top-6 left-0 w-32 bg-white shadow-md rounded-md py-2 z-50'>
-                <Link href='/' className='block px-4 py-2 hover:bg-gray-100'>Nutrix</Link>
-                <Link href='/' className='block px-4 py-2 hover:bg-gray-100'>Farmik</Link>
+                <Link href='/Nutrixmenu' className='block px-4 py-2 hover:bg-gray-100'>Nutrix</Link>
+                <Link href='/Nutrixmenu' className='block px-4 py-2 hover:bg-gray-100'>Farmik</Link>
               </div>
             )}
           </div>

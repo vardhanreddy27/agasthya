@@ -4,7 +4,7 @@ import Products from "./Products";
 
 function Nurtix() {
   return (
-    <section className="bg-white text-gray-800 px-6 py-12">
+    <section className="bg-[#fdfdfd] text-gray-800 px-6 py-12">
       {/* Hero Section */}
       <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-4xl font-bold text-[rgb(157,37,45)] drop-shadow-sm mb-4">
@@ -20,7 +20,7 @@ function Nurtix() {
       <div className="max-w-6xl mb-10 mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="relative w-full h-72 md:h-[400px]">
           <Image
-            src="/berryblastwithbg.webp"
+            src="/aboutus.webp"
             alt="Nutrix Oats"
             layout="fill"
             objectFit="cover"
@@ -52,12 +52,12 @@ function Nurtix() {
   
       <Products />
           {/* CTA */}
-          <div className="text-center mt-16">
+          {/* <div className="text-center mt-16">
         <h3 className="text-xl font-semibold mb-3">Ready to taste the difference?</h3>
         <button className="bg-[rgb(157,37,45)] hover:opacity-90 text-white px-6 py-3 rounded-full font-medium transition">
           Shop Nutrix Products
         </button>
-      </div>
+      </div> */}
     </section>
 
   );
