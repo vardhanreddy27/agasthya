@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link"; // Add at the top of your file if not already present
 import React, { useEffect, useRef, useState } from "react";
 import {
   motion,
@@ -124,12 +125,16 @@ export default function HeroSection() {
             Discover our latest innovations — from protein-packed Milk Mixes to crunchy Ragi Fills and wholesome Millet Mueslis. ✨
           </p>
           <div className="flex justify-center lg:justify-start gap-4 mt-6 flex-wrap">
-            <button className="bg-[rgb(157,37,45)] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
-              Contact Us
-            </button>
-            <button className="border border-[rgb(157,37,45)] text-[rgb(157,37,45)] px-6 py-3 rounded-full text-sm font-medium hover:bg-[rgb(157,37,45)] hover:text-white transition">
+           <Link href="/Contact" passHref>
+  <button className="bg-[rgb(157,37,45)] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
+    Contact Us
+  </button>
+</Link>
+                      <Link href="/Contact" passHref>
+ <button className="border border-[rgb(157,37,45)] text-[rgb(157,37,45)] px-6 py-3 rounded-full text-sm font-medium hover:bg-[rgb(157,37,45)] hover:text-white transition">
               Become a Partner
-            </button>
+            </button></Link>
+
           </div>
           <div className="mt-6 text-sm text-gray-500">
             Naturally Sourced · Trusted by 1000+ Retailers
