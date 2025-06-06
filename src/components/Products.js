@@ -47,7 +47,7 @@ function Products() {
       description: "Flavors : Choco Flakes , Froot Loops , Choco Fills",
     },  {
       title: "Millet Muesli",
-      imageUrl: "/Muesli.webp",
+      imageUrl: "/muesli.webp",
       description: "Flavors :Berry Blast , Dark Chocolate , Nutty Crunchy ",
     }, {
       title: "Porridges",
