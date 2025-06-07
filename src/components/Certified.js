@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link"; // Add at the top of your file if not already present
 
 const Certified = () => {
   const certImages = [
@@ -21,10 +22,11 @@ const Certified = () => {
             No one takes security more seriously than us. That’s why we work hard
             to achieve and maintain the highest security standards in the industry.
           </p>
+                              <Link href="/Contact" passHref>
           <button className="primarycolor text-white px-6 py-3 rounded-lg flex items-center justify-center md:justify-start space-x-2">
             <span>→</span>
             <span>Get in touch</span>
-          </button>
+          </button></Link >
         </div>
 
         {/* Right Section - Responsive Grid with Borders */}
