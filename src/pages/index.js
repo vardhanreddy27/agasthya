@@ -15,6 +15,7 @@ import { FeaturesSectionDemo } from '@/components/FeaturesSectionDemo';
 import HeroSection from '@/components/HeroSection';
 import Band from '@/components/Band';
 import Welcome from '@/components/Welcom';
+import Ourpl from '@/components/Ourpl';
 function index() {
   return (
     <div>
@@ -28,6 +29,7 @@ function index() {
             <Infinate />
 
       <Features />
+      <Ourpl />
       <Banner />
       <TimelineDemo />
             <LeadershipTeam />
