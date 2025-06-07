@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 
 import { motion } from "framer-motion";
 
@@ -35,13 +36,14 @@ export const Marquee = ({ images, className }) => {
                 {[...subarray, ...subarray].map((image, index) => (
                   <div className="relative" key={`${colIndex}-${index}`}>
                     <GridLineHorizontal className="-top-4" offset="20px" />
-                    <img
-                      src={image}
-                      alt={`Image ${index + 1}`}
-                      className="aspect-[970/700] rounded-lg object-cover hover:shadow-md transition"
-                      width={970}
-                      height={700}
-                    />
+                  <Image
+  src={image}
+  alt={`Image ${index + 1}`}
+  width={970}
+  height={700}
+  loading="lazy"
+  className="aspect-[970/700] rounded-lg object-cover hover:shadow-md transition"
+/>
                   </div>
                 ))}
               </motion.div>

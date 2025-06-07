@@ -1,21 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { WorldMap } from "./WorldMap";
-import {
-  MapPin,
-  Building,
-  Mail,
-  Phone,
-  Clock,
-} from "lucide-react";
+import Image from "next/image";
+import { MapPin, Building, Mail, Phone, Clock } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-
+} from "@/components/ui/accordion";
 
 const corporateOffices = [
   {
@@ -55,34 +48,34 @@ export function WorldMapDemo() {
     <>
       <h1 className="text-center pt-14 text-3xl font-bold">Contact Us</h1>
       <div className="w-full bg-white flex flex-col md:flex-row">
-        {/* World Map */}
-   {/* World Map */}
-<div className="w-full md:w-1/2 flex items-center justify-center h-[600px]">
-  <WorldMap
-    dots={[
-      { start: { lat: 3.385, lng: 78.4867 }, end: { lat: 25.276987, lng: 55.296249 } },
-      { start: { lat: 3.385, lng: 78.4867 }, end: { lat: 51.5072, lng: -0.1276 } },
-      { start: { lat: 3.385, lng: 78.4867 }, end: { lat: -32.4698, lng: 144.0251 } },
-      { start: { lat: 3.385, lng: 78.4867 }, end: { lat: 43.4675, lng: -79.6877 } },
-    ]}
-  />
-</div>
-
+        {/* Static World Map Image without cropping */}
+        <div className="w-full md:w-1/2 h-[600px] flex items-center justify-center">
+          <div className="w-full h-full relative">
+            <Image
+              src="/worldmap.png"
+              alt="World Map"
+              width={1000}
+              height={600}
+              className="w-full h-full object-contain"
+              priority
+            />
+          </div>
+        </div>
 
         {/* Contact Info */}
-        <div className="w-full md:w-1/2 flex flex-col items-center justify-center p-6">
-          <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md space-y-6">
-            {/* Factory */}
+        <div className="w-full md:w-1/2 flex flex-col  justify-center p-6">
+          <div className="bg-white p-6 w-full  space-y-6">
             <div className="flex items-start gap-4">
               <MapPin className="text-gray-500" size={36} />
               <p>
-                <strong>Factory Address:</strong><br />
-                Plot No 26/A, Industrial Park,<br />
+                <strong>Factory Address:</strong>
+                <br />
+                Plot No 26/A, Industrial Park,
+                <br />
                 Narmala, Rajanna Sircilla Dt., Telangana 505304
               </p>
             </div>
 
-            {/* Corporate Offices Accordion */}
             <div className="flex items-start gap-4">
               <Building className="text-gray-500 mt-1" size={36} />
               <div className="w-full">
@@ -90,7 +83,9 @@ export function WorldMapDemo() {
                 <Accordion type="single" collapsible className="w-full">
                   {corporateOffices.map((office, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="no-underline hover:no-underline decoration-transparent">{office.country}</AccordionTrigger>
+                      <AccordionTrigger className="no-underline hover:no-underline decoration-transparent">
+                        {office.country}
+                      </AccordionTrigger>
                       <AccordionContent>{office.address}</AccordionContent>
                     </AccordionItem>
                   ))}
@@ -98,22 +93,25 @@ export function WorldMapDemo() {
               </div>
             </div>
 
-            {/* Email */}
             <div className="flex items-center gap-4">
               <Mail className="text-gray-500" />
-              <p><strong>Email:</strong> info@agasthya.co.in</p>
+              <p>
+                <strong>Email:</strong> info@agasthya.co.in
+              </p>
             </div>
 
-            {/* Phone */}
             <div className="flex items-center gap-4">
               <Phone className="text-gray-500" />
-              <p><strong>Ph:</strong> +91 70757 04167</p>
+              <p>
+                <strong>Ph:</strong> +91 70757 04167
+              </p>
             </div>
 
-            {/* Working Hours */}
             <div className="flex items-center gap-4">
               <Clock className="text-gray-500" />
-              <p><strong>Monday–Friday:</strong> 9am – 6pm</p>
+              <p>
+                <strong>Monday–Friday:</strong> 9am – 6pm
+              </p>
             </div>
           </div>
         </div>
