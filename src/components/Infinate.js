@@ -1,55 +1,55 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+  import React, { useEffect, useRef } from 'react';
+  import gsap from 'gsap';
 
-function InfiniteShowcase() {
-  const containerRef = useRef(null);
+  function InfiniteShowcase() {
+    const containerRef = useRef(null);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    useEffect(() => {
+      const container = containerRef.current;
+      if (!container) return;
 
-    // GPU hint for smoother animation
-    container.style.willChange = 'transform';
+      // GPU hint for smoother animation
+      container.style.willChange = 'transform';
 
-    const animation = gsap.to(container, {
-      x: '-50%', // Scroll half container width
-      duration: window.innerWidth < 768 ? 45 : 90, // Mobile faster
-      ease: 'linear',
-      repeat: -1,
-    });
+      const animation = gsap.to(container, {
+        x: '-50%', // Scroll half container width
+        duration: window.innerWidth < 768 ? 45 : 90, // Mobile faster
+        ease: 'linear',
+        repeat: -1,
+      });
 
-    return () => animation.kill(); // Cleanup on unmount
-  }, []);
+      return () => animation.kill(); // Cleanup on unmount
+    }, []);
 
-  const images = [
-    { src: '/saudi.jpg', caption: 'Saudi Food Expo' },
-    { src: '/incc.jpg', caption: 'INCC-Nutri-Cereal Event' },
-    { src: '/india.jpg', caption: 'World Food India Event' },
-    { src: '/nutrihub.jpg', caption: 'Best Startup Millet Manufacturing' },
-    { src: '/gulf.jpg', caption: 'Gulfood Expo' },
-    { src: '/gulffood.jpg', caption: 'Gulfood Event' },
-  ];
+    const images = [
+      { src: '/saudi.jpg', caption: 'Saudi Food Expo' },
+      { src: '/incc.jpg', caption: 'INCC-Nutri-Cereal Event' },
+      { src: '/india.jpg', caption: 'World Food India Event' },
+      { src: '/nutrihub.jpg', caption: 'Best Startup Millet Manufacturing' },
+      { src: '/gulf.jpg', caption: 'Gulfood Expo' },
+      { src: '/gulffood.jpg', caption: 'Gulfood Event' },
+    ];
 
-  return (
-    <div style={styles.wrapper} className="mb-5">
-      <h2 className="text-center text-2xl md:text-3xl font-bold mb-14 text-gray-800">
-        Proudly Showcasing at Global Food & Innovation Platforms
-      </h2>
-      <div ref={containerRef} style={styles.container}>
-        {[...images, ...images].map((image, index) => (
-          <div key={index} style={styles.imageWrapper}>
-            <img
-              src={image.src}
-              alt={image.caption || `Showcase ${index + 1}`}
-              style={styles.image}
-            />
-            <p style={styles.caption}>{image.caption}</p>
-          </div>
-        ))}
+    return (
+      <div style={styles.wrapper} className="mb-5">
+        <h2 className="text-center text-2xl md:text-3xl font-bold mb-14 text-gray-800">
+          Proudly Showcasing at Global Food & Innovation Platforms
+        </h2>
+        <div ref={containerRef} style={styles.container}>
+          {[...images, ...images].map((image, index) => (
+            <div key={index} style={styles.imageWrapper}>
+              <img
+                src={image.src}
+                alt={image.caption || `Showcase ${index + 1}`}
+                style={styles.image}
+              />
+              <p style={styles.caption}>{image.caption}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 const styles = {
   wrapper: {
@@ -61,7 +61,7 @@ const styles = {
   container: {
     display: 'flex',
     width: '200%',
-    gap: '20px',
+    gap: '40px', // more spacing between larger images
     alignItems: 'center',
   },
   imageWrapper: {
@@ -71,21 +71,21 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '240px', // Smaller for better mobile experience
+    width: '360px', // increased from 240px
   },
   image: {
     width: '100%',
-    maxWidth: '240px',
-    height: '140px',
+    maxWidth: '360px', // increased from 240px
+    height: '220px', // increased from 140px
     objectFit: 'cover',
-    borderRadius: '10px',
-    marginBottom: '10px',
+    borderRadius: '12px',
+    marginBottom: '12px',
   },
   caption: {
-    fontSize: '0.85rem',
+    fontSize: '1rem',
     fontWeight: 600,
     color: '#4a4a4a',
-    marginTop: '4px',
+    marginTop: '6px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
@@ -93,4 +93,5 @@ const styles = {
   },
 };
 
-export default InfiniteShowcase;
+
+  export default InfiniteShowcase;
