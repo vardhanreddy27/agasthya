@@ -1,93 +1,30 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { gsap } from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import SplitType from "split-type";
 
-gsap.registerPlugin(ScrollTrigger);
+const certImages = [
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Halal_logo.svg/1200px-Halal_logo.svg.png",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmesZLK16WzQC1dBmwuwbKssDDlJE8oW-zJZVDCbmKu7gPdf3u2Zgpo1AgRH7Fo74m0OU&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWaO6TMf3Toxuc1hFCC25TIGEq5-HfdEF06g&s",
+  "https://upload.wikimedia.org/wikipedia/en/e/e2/FSSAI_logo.png",
+  "/usfda.png",
+  "https://www.boonsfis.com/uploads/longread_blocks/image/1937.png?t=1727170014",
+];
 
 const Certified = () => {
-  const sectionRef = useRef(null);
-  const imageRefs = useRef([]);
-  const headingRef = useRef(null);
-  const paragraphRef = useRef(null);
-
-  const certImages = [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Halal_logo.svg/1200px-Halal_logo.svg.png",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmesZLK16WzQC1dBmwuwbKssDDlJE8oW-zJZVDCbmKu7gPdf3u2Zgpo1AgRH7Fo74m0OU&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWaO6TMf3Toxuc1hFCC25TIGEq5-HfdEF06g&s",
-    "https://upload.wikimedia.org/wikipedia/en/e/e2/FSSAI_logo.png",
-    "/usfda.png",
-    "https://www.boonsfis.com/uploads/longread_blocks/image/1937.png?t=1727170014",
-  ];
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const headingSplit = new SplitType(headingRef.current, { types: "words" });
-      const paragraphSplit = new SplitType(paragraphRef.current, { types: "words" });
-
-      gsap.set(".word", {
-        y: 80,
-        opacity: 0,
-        clipPath: "inset(100% 0% 0% 0%)",
-      });
-
-      // Timeline to sequence text first, then logos
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
-
-      tl.to(headingSplit.words, {
-        y: 0,
-        opacity: 1,
-        clipPath: "inset(0% 0% 0% 0%)",
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: 0.02,
-      })
-        .to(paragraphSplit.words, {
-          y: 0,
-          opacity: 1,
-          clipPath: "inset(0% 0% 0% 0%)",
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: 0.02,
-        }, "-=0.3") // slightly overlaps paragraph with title end
-        .fromTo(
-          imageRefs.current,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            stagger: 0.15,
-          },
-          "+=0.2" // slight delay after text
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="mt-10 bg-white shadow-xl border border-gray-200">
+    <section className="mt-10 bg-white shadow-xl border border-gray-200">
       <div className="flex flex-col md:flex-row items-stretch">
-
         {/* Left Section */}
         <div className="md:w-1/3 w-full p-6 space-y-4 border-b md:border-b-0 md:border-r border-gray-200">
-          <h2 ref={headingRef} className="text-2xl font-bold opacity-100 overflow-hidden">
+          <h2 className="text-2xl font-bold">
             Our certifications say it all.
           </h2>
-          <p ref={paragraphRef} className="text-gray-600 opacity-100 overflow-hidden">
-            No one takes security more seriously than us. That’s why we work hard to achieve and maintain the highest security standards in the industry.
+          <p className="text-gray-600">
+            No one takes security more seriously than us. That’s why we work
+            hard to achieve and maintain the highest security standards in the
+            industry.
           </p>
           <Link href="/Contact" passHref>
             <button className="primarycolor mt-9 text-white px-6 py-3 rounded-lg flex items-center justify-center md:justify-start space-x-2">
@@ -100,11 +37,11 @@ const Certified = () => {
         {/* Right Grid Section */}
         <div className="md:w-2/3 w-full grid grid-cols-2 md:grid-cols-3 border-t md:border-t-0">
           {certImages.map((cert, index) => (
-            <div key={index} className="flex justify-center items-center p-6 bg-white border border-gray-200">
-              <div
-                ref={(el) => (imageRefs.current[index] = el)}
-                className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center"
-              >
+            <div
+              key={index}
+              className="flex justify-center items-center p-6 bg-white border border-gray-200"
+            >
+              <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
                 <Image
                   src={cert}
                   width={96}
