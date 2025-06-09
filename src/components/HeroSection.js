@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link"; // Add at the top of your file if not already present
+
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import {
   motion,
@@ -12,6 +13,8 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { Heart, X } from "lucide-react";
+import SplitType from "split-type";
+import { gsap } from "gsap";
 
 const wrap = (min, max, v) => ((((v - min) % (max - min)) + (max - min)) % (max - min)) + min;
 
@@ -101,6 +104,31 @@ export default function HeroSection() {
   const [selectedItem, setSelectedItem] = useState(null);
   const handleCardClick = (item) => setSelectedItem(item);
   const closeModal = () => setSelectedItem(null);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    const split = new SplitType("#hero-title", { types: "words" });
+    gsap.set("#hero-title", { opacity: 1 });
+    gsap.set(".word", { y: 100, opacity: 0 });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          gsap.to(".word", {
+            y: 0,
+            opacity: 1,
+            stagger: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (headingRef.current) observer.observe(headingRef.current);
+  }, []);
 
   const cards = [
     { image: "/farmik.webp", title: "Berry Blast", description: "Delicious berry flavor", tagline: "Berrylicious!", benefits: "Antioxidants, immunity" },
@@ -114,9 +142,12 @@ export default function HeroSection() {
   return (
     <section className="w-full px-4 pt-14 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16 pl-3">
-        {/* Left: Text */}
         <div className="flex-1 text-center lg:text-left">
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4 text-gray-900">
+          <h1
+            id="hero-title"
+            ref={headingRef}
+            className="text-3xl md:text-5xl font-bold leading-tight mb-4 text-gray-900 overflow-hidden opacity-0"
+          >
             Reimagining Nutrition for Modern Living
             <br />
             <span className="text-[rgb(157,37,45)]">AGASTHYA SUPERFOODS</span>
@@ -125,23 +156,22 @@ export default function HeroSection() {
             Discover our latest innovations — from protein-packed Milk Mixes to crunchy Ragi Fills and wholesome Millet Mueslis. ✨
           </p>
           <div className="flex justify-center lg:justify-start gap-4 mt-6 flex-wrap">
-           <Link href="/Contact" passHref>
-  <button className="bg-[rgb(157,37,45)] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
-    Contact Us
-  </button>
-</Link>
-                      <Link href="/Contact" passHref>
- <button className="border border-[rgb(157,37,45)] text-[rgb(157,37,45)] px-6 py-3 rounded-full text-sm font-medium hover:bg-[rgb(157,37,45)] hover:text-white transition">
-              Become a Partner
-            </button></Link>
-
+            <Link href="/Contact" passHref>
+              <button className="bg-[rgb(157,37,45)] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
+                Contact Us
+              </button>
+            </Link>
+            <Link href="/Contact" passHref>
+              <button className="border border-[rgb(157,37,45)] text-[rgb(157,37,45)] px-6 py-3 rounded-full text-sm font-medium hover:bg-[rgb(157,37,45)] hover:text-white transition">
+                Become a Partner
+              </button>
+            </Link>
           </div>
           <div className="mt-6 text-sm text-gray-500">
             Naturally Sourced · Trusted by 1000+ Retailers
           </div>
         </div>
 
-        {/* Right: Scrolling Cards */}
         <div className="flex-1 w-full relative h-[65vh] sm:h-[75vh]">
           <VelocityScrollColumn items={cards} numColumns={2} defaultVelocity={0.5} onCardClick={handleCardClick} />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-white to-transparent" />
@@ -149,7 +179,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selectedItem && (
           <motion.div

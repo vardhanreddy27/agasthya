@@ -16,9 +16,9 @@ const contactDetails = {
       "Unit 3, Floor 20, One West Terminus, Financial District, Nanakramguda, Hyderabad, Telangana 500032",
     contacts: [
       {
-        name: "Shiva",
-        phone: "+91 97044 66110",
-        email: "shiva.k@agasthya.co.in",
+        name: "Manvith Reddy",
+        phone: "+91 7075704167",
+        email: "manvithareddy.nare@agasthya.co.in",
       },
     ],
   },
@@ -27,9 +27,9 @@ const contactDetails = {
       "DSO Headquarters Building, A–Wing 06A–07, Dubai Silicon Oasis, Sheikh Mohammed Bin Zayed Road, Dubai",
     contacts: [
       {
-        name: "Shaik Abdul Rahman",
-        phone: "+971 54588 2601",
-        email: "rahman@agasthya.co.in",
+        name: "Sharath",
+        phone: "+971 564037933",
+        email: "sharath.p@futureascenttrade.com",
       },
     ],
   },
@@ -38,7 +38,7 @@ const contactDetails = {
     contacts: [
       {
         name: "Vijay Kumar",
-        phone: "+44 7453 884040",
+        phone: "+44 7453884040",
         email: "vijay.dev@futureascenttrade.co.uk",
       },
     ],
@@ -47,9 +47,9 @@ const contactDetails = {
     address: "1G, 528 Compton Road, Stretton QLD 4116, AU",
     contacts: [
       {
-        name: "Ram Babu",
-        phone: "+61 452 260 006",
-        email: "rambabu@agasthya.co.in",
+        name: "Manoj Sukumaran",
+        phone: "+61 426616166",
+        email: "manoj@futureascenttrade.com.au",
       },
     ],
   },
@@ -57,9 +57,9 @@ const contactDetails = {
     address: "310, 1480 Bishops Gate, Oakville, Ontario L6M 4N4",
     contacts: [
       {
-        name: "Krishna",
-        phone: "+1 647 875 8286",
-        email: "krishna@agasthya.co.in",
+        name: "Sunil Manne",
+        phone: "+1 18184453135",
+        email: "sunil.m@futureascenttrade.ca",
       },
     ],
   },
