@@ -7,15 +7,15 @@ const brands = [
     name: "Nutrix",
     description:
       "Explore our wholesome range of oat-based products, crafted for a healthy lifestyle. From instant oats to tasty granola, Nutrix has your nutritious cravings covered.",
-    image: "/nurtix.png", // Replace with actual image path
+    image: "/nutrix.png",
     link: "/Nutrixmenu",
   },
   {
     name: "Farmik",
     description:
       "Discover our premium dairy products made with farm-fresh goodness. From milk and paneer to traditional ghee, Farmik brings purity to your table.",
-      image: "/nurtix.png", // Replace with actual image path
-      link: "/Farmikmenu",
+    image: "/farmiklogo.png",
+    link: "/Farmikmenu",
   },
 ];
 
@@ -39,22 +39,20 @@ export default function Brandsmain() {
               href={brand.link}
               className="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
             >
-              <div className="relative h-64 w-full">
+              <div className="relative h-64 w-full bg-gradient-to-br from-[#fdf0f3] to-[#f9f9f9] flex items-center justify-center">
                 <Image
                   src={brand.image}
                   alt={brand.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-t-2xl"
+                  width={200}
+                  height={100}
+                  className="object-contain"
                 />
               </div>
               <div className="p-6 text-left">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-2">
                   {brand.name}
                 </h3>
-                <p className="text-gray-600 text-sm">
-                  {brand.description}
-                </p>
+                <p className="text-gray-600 text-sm">{brand.description}</p>
               </div>
             </Link>
           ))}
