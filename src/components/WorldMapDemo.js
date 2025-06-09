@@ -76,11 +76,11 @@ export function WorldMapDemo() {
 
   return (
     <>
-      <h1 className="text-center pt-14 text-3xl font-bold">Contact Us</h1>
+      <h1 className="text-center pt-10 text-2xl sm:text-3xl font-bold">Contact Us</h1>
       <div className="w-full bg-white flex flex-col md:flex-row">
         {/* World Map */}
-        <div className="w-full md:w-1/2 h-[600px] flex items-center justify-center">
-          <div className="w-full h-full relative">
+        <div className="w-full md:w-1/2 flex items-center justify-center mt-3 md:mt-0 md:h-[600px]">
+          <div className="w-full h-[300px] sm:h-[400px] md:h-full relative">
             <Image
               src="/worldmap.png"
               alt="World Map"
@@ -93,11 +93,12 @@ export function WorldMapDemo() {
         </div>
 
         {/* Contact Info */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center p-6">
-          <div className="bg-white p-6 w-full space-y-6">
-            <div className="flex items-start gap-4">
-              <MapPin className="text-gray-500" size={36} />
-              <p>
+        <div className="w-full md:w-1/2 flex flex-col justify-center p-4 sm:p-6">
+          <div className="bg-white w-full space-y-6">
+            {/* Factory Address */}
+            <div className="flex items-start gap-3">
+              <MapPin className="text-gray-500" size={28} />
+              <p className="text-sm sm:text-base">
                 <strong>Factory Address:</strong>
                 <br />
                 Plot No 26/A, Industrial Park,
@@ -106,23 +107,24 @@ export function WorldMapDemo() {
               </p>
             </div>
 
-            <div className="flex items-start gap-4">
-              <Building className="text-gray-500 mt-1" size={36} />
+            {/* Corporate Offices */}
+            <div className="flex items-start gap-3">
+              <Building className="text-gray-500 mt-1" size={28} />
               <div className="w-full">
-                <p className="font-bold mb-2">Corporate Offices</p>
+                <p className="font-bold mb-2 text-sm sm:text-base">Corporate Offices</p>
                 <Accordion type="single" collapsible className="w-full">
                   {Object.entries(contactDetails).map(([country, data], idx) => (
                     <AccordionItem key={idx} value={`item-${idx}`}>
-                      <AccordionTrigger className="no-underline hover:no-underline decoration-transparent">
+                      <AccordionTrigger className="text-sm sm:text-base">
                         {country}
                       </AccordionTrigger>
-                      <AccordionContent>
-                        <p className="mb-2">{data.address}</p>
+                      <AccordionContent className="text-sm text-gray-700 space-y-2">
+                        <p className="whitespace-pre-wrap">{data.address}</p>
                         {data.contacts.map((contact, i) => (
-                          <div key={i} className="mb-4 text-sm text-gray-700">
+                          <div key={i}>
                             <p><strong>Name:</strong> {contact.name}</p>
                             <p><strong>Phone:</strong> {contact.phone}</p>
-                            <p><strong>Email:</strong> {contact.email}</p>
+                            <p className="break-words"><strong>Email:</strong> {contact.email}</p>
                           </div>
                         ))}
                       </AccordionContent>
@@ -132,9 +134,10 @@ export function WorldMapDemo() {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <Clock className="text-gray-500" />
-              <p>
+            {/* Working Hours */}
+            <div className="flex items-start gap-3">
+              <Clock className="text-gray-500" size={28} />
+              <p className="text-sm sm:text-base">
                 <strong>Monday–Friday:</strong> 9am – 6pm
               </p>
             </div>
