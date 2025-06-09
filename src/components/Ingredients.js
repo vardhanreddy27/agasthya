@@ -1,5 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ingredients = [
   { name: "Jowar", description: "Rich in fiber and gluten free", image: "/jowar.webp" },
@@ -13,6 +19,32 @@ const ingredients = [
 ];
 
 function Ingredients() {
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    cardRefs.current.forEach((el, index) => {
+      gsap.fromTo(
+        el,
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+          delay: index * 0.1, // staggered delay
+        }
+      );
+    });
+  }, []);
+
   return (
     <div className="bg-[#F6F1EB] py-6">
       <h1 className="text-center text-3xl md:text-4xl font-bold text-[#9D252D] my-6">
@@ -22,7 +54,11 @@ function Ingredients() {
       <div className="mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14">
           {ingredients.map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
+            <div
+              key={index}
+              ref={(el) => (cardRefs.current[index] = el)}
+              className="flex flex-col items-center text-center opacity-0"
+            >
               <div className="w-36 h-36 md:w-40 md:h-40 relative">
                 <Image
                   src={item.image}

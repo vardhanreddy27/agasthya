@@ -40,7 +40,11 @@ html {
   .word{
     transform: translateY(115px);
     transition: transform .5s;
-  }
+  }.band-text {
+  display: inline-block;
+  will-change: transform, opacity, clip-path;
+}
+
   .animate2{clip-path: polygon(0 0, 100% 0, 100% 150%, 0% 100%);}
 .animate{
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);

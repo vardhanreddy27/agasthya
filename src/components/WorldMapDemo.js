@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { MapPin, Building, Mail, Phone, Clock } from "lucide-react";
+import { MapPin, Building, Clock } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -10,30 +10,60 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const corporateOffices = [
-  {
-    country: "India (Corporate Office)",
+const contactDetails = {
+  "India (Corporate Office)": {
     address:
       "Unit 3, Floor 20, One West Terminus, Financial District, Nanakramguda, Hyderabad, Telangana 500032",
+    contacts: [
+      {
+        name: "Shiva",
+        phone: "+91 97044 66110",
+        email: "shiva.k@agasthya.co.in",
+      },
+    ],
   },
-  {
-    country: "UAE",
+  UAE: {
     address:
       "DSO Headquarters Building, A–Wing 06A–07, Dubai Silicon Oasis, Sheikh Mohammed Bin Zayed Road, Dubai",
+    contacts: [
+      {
+        name: "Shaik Abdul Rahman",
+        phone: "+971 54588 2601",
+        email: "rahman@agasthya.co.in",
+      },
+    ],
   },
-  {
-    country: "UK",
+  UK: {
     address: "6, Reynolds Way, Croydon CRO 5JW, London",
+    contacts: [
+      {
+        name: "Vijay Kumar",
+        phone: "+44 7453 884040",
+        email: "vijay.dev@futureascenttrade.co.uk",
+      },
+    ],
   },
-  {
-    country: "Australia",
+  Australia: {
     address: "1G, 528 Compton Road, Stretton QLD 4116, AU",
+    contacts: [
+      {
+        name: "Ram Babu",
+        phone: "+61 452 260 006",
+        email: "rambabu@agasthya.co.in",
+      },
+    ],
   },
-  {
-    country: "Canada",
+  Canada: {
     address: "310, 1480 Bishops Gate, Oakville, Ontario L6M 4N4",
+    contacts: [
+      {
+        name: "Krishna",
+        phone: "+1 647 875 8286",
+        email: "krishna@agasthya.co.in",
+      },
+    ],
   },
-];
+};
 
 export function WorldMapDemo() {
   const [mounted, setMounted] = useState(false);
@@ -48,7 +78,7 @@ export function WorldMapDemo() {
     <>
       <h1 className="text-center pt-14 text-3xl font-bold">Contact Us</h1>
       <div className="w-full bg-white flex flex-col md:flex-row">
-        {/* Static World Map Image without cropping */}
+        {/* World Map */}
         <div className="w-full md:w-1/2 h-[600px] flex items-center justify-center">
           <div className="w-full h-full relative">
             <Image
@@ -63,8 +93,8 @@ export function WorldMapDemo() {
         </div>
 
         {/* Contact Info */}
-        <div className="w-full md:w-1/2 flex flex-col  justify-center p-6">
-          <div className="bg-white p-6 w-full  space-y-6">
+        <div className="w-full md:w-1/2 flex flex-col justify-center p-6">
+          <div className="bg-white p-6 w-full space-y-6">
             <div className="flex items-start gap-4">
               <MapPin className="text-gray-500" size={36} />
               <p>
@@ -81,30 +111,25 @@ export function WorldMapDemo() {
               <div className="w-full">
                 <p className="font-bold mb-2">Corporate Offices</p>
                 <Accordion type="single" collapsible className="w-full">
-                  {corporateOffices.map((office, index) => (
-                    <AccordionItem key={index} value={`item-${index}`}>
+                  {Object.entries(contactDetails).map(([country, data], idx) => (
+                    <AccordionItem key={idx} value={`item-${idx}`}>
                       <AccordionTrigger className="no-underline hover:no-underline decoration-transparent">
-                        {office.country}
+                        {country}
                       </AccordionTrigger>
-                      <AccordionContent>{office.address}</AccordionContent>
+                      <AccordionContent>
+                        <p className="mb-2">{data.address}</p>
+                        {data.contacts.map((contact, i) => (
+                          <div key={i} className="mb-4 text-sm text-gray-700">
+                            <p><strong>Name:</strong> {contact.name}</p>
+                            <p><strong>Phone:</strong> {contact.phone}</p>
+                            <p><strong>Email:</strong> {contact.email}</p>
+                          </div>
+                        ))}
+                      </AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
               </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <Mail className="text-gray-500" />
-              <p>
-                <strong>Email:</strong> info@agasthya.co.in
-              </p>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <Phone className="text-gray-500" />
-              <p>
-                <strong>Ph:</strong> +91 70757 04167
-              </p>
             </div>
 
             <div className="flex items-center gap-4">

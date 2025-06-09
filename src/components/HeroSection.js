@@ -113,7 +113,7 @@ export default function HeroSection() {
 
   return (
     <section className="w-full px-4 pt-14 bg-white">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16 pl-3">
         {/* Left: Text */}
         <div className="flex-1 text-center lg:text-left">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4 text-gray-900">
