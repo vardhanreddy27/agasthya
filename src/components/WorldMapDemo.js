@@ -115,7 +115,7 @@ export function WorldMapDemo() {
                 <Accordion type="single" collapsible className="w-full">
                   {Object.entries(contactDetails).map(([country, data], idx) => (
                     <AccordionItem key={idx} value={`item-${idx}`}>
-                      <AccordionTrigger className="text-sm sm:text-base">
+<AccordionTrigger className="text-sm sm:text-base no-underline hover:no-underline">
                         {country}
                       </AccordionTrigger>
                       <AccordionContent className="text-sm text-gray-700 space-y-2">
