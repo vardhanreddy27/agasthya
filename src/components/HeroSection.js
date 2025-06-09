@@ -153,7 +153,7 @@ export default function HeroSection() {
             <span className="text-[rgb(157,37,45)]">AGASTHYA SUPERFOODS</span>
           </h1>
           <p className="text-gray-600 mt-2 max-w-xl mx-auto lg:mx-0 text-base md:text-lg">
-            Discover our latest innovations — from protein-packed Milk Mixes to crunchy Ragi Fills and wholesome Millet Mueslis. ✨
+            Discover our latest innovations — from protein-packed Milk Mixes to crunchy Ragi Fills and wholesome Millet Mueslis ✨
           </p>
           <div className="flex justify-center lg:justify-start gap-4 mt-6 flex-wrap">
             <Link href="/Contact" passHref>

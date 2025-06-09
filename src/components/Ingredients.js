@@ -8,9 +8,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const ingredients = [
-  { name: "Jowar", description: "Rich in fiber and gluten free", image: "/jowar.webp" },
-  { name: "Bajra", description: "Packed with iron and boosts energy", image: "/bajra.webp" },
-  { name: "Ragi", description: "Improves digestion", image: "/ragi.webp" },
+  { name: "Sorghum", description: "Rich in fiber and gluten free", image: "/jowar.webp" },
+  { name: "Pearl Millet", description: "Packed with iron and boosts energy", image: "/bajra.webp" },
+  { name: "Finger Millet", description: "Improves digestion", image: "/ragi.webp" },
   { name: "Corn & Quinoa", description: "Rich in Fibre for a Healthy Gut", image: "/corn.webp" },
   { name: "Pumpkin & Sunflower seeds", description: "Boosts heart health", image: "/pumpkin.webp" },
   { name: "Almonds & Cashews", description: "Lowers cholesterol levels", image: "/almonds.webp" },
