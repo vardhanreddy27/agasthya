@@ -60,7 +60,7 @@ function Welcome() {
 
   return (
     <section className="bg-[#FFF0F1]">
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+<div className="w-full lg:pl-6 pl-0 mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
         
         {/* Left Column - Text + CTA */}
         <div className="lg:w-1/3 w-full flex flex-col px-4 text-center lg:text-left pb-5">
