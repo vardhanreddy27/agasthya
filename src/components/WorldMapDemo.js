@@ -16,7 +16,7 @@ const contactDetails = {
       "Unit 3, Floor 20, One West Terminus, Financial District, Nanakramguda, Hyderabad, Telangana 500032",
     contacts: [
       {
-        name: "Manvith Reddy",
+        name: "Manvitha Reddy",
         phone: "+91 7075704167",
         email: "manvithareddy.nare@agasthya.co.in",
       },
