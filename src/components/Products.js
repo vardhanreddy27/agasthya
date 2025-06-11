@@ -13,7 +13,9 @@ function Card({ title, imageUrls = [], description }) {
     setFading(true);
     setTimeout(() => {
       setIdx((p) =>
-        dir === "next" ? (p + 1) % gallery.length : (p - 1 + gallery.length) % gallery.length
+        dir === "next"
+          ? (p + 1) % gallery.length
+          : (p - 1 + gallery.length) % gallery.length
       );
       setFading(false);
     }, 200);
@@ -22,7 +24,7 @@ function Card({ title, imageUrls = [], description }) {
   const [label = "", value = ""] = (description ?? "").split(/:\s*/);
 
   return (
-    <div className="w-[350px] h-[380px] bg-white rounded-2xl overflow-hidden shadow-md flex flex-col">
+    <div className="w-[350px] h-[380px] bg-[#dcac71] rounded-2xl overflow-hidden shadow-md flex flex-col">
       {/* Carousel */}
       <div className="relative h-[300px]">
         {gallery.map((src, i) => (
@@ -32,8 +34,13 @@ function Card({ title, imageUrls = [], description }) {
             alt={`${title} ${i + 1}`}
             width={1000}
             height={300}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ease-in-out
-              ${i === idx ? (fading ? "opacity-0 scale-95" : "opacity-100 scale-100 z-10") : "opacity-0"}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ease-in-out ${
+              i === idx
+                ? fading
+                  ? "opacity-0 scale-95"
+                  : "opacity-100 scale-100 z-10"
+                : "opacity-0"
+            }`}
             priority={i === idx}
           />
         ))}
@@ -42,13 +49,13 @@ function Card({ title, imageUrls = [], description }) {
           <>
             <button
               onClick={() => change("prev")}
-              className="absolute top-1/2 left-3 -translate-y-1/2 bg-white/80 p-1 rounded-full hover:scale-110 transition z-20"
+              className="absolute top-1/2 left-3 -translate-y-1/2 bg-[#ffffff]/80 p-1 rounded-full hover:scale-110 transition z-20"
             >
               <FiChevronLeft size={18} />
             </button>
             <button
               onClick={() => change("next")}
-              className="absolute top-1/2 right-3 -translate-y-1/2 bg-white/80 p-1 rounded-full hover:scale-110 transition z-20"
+              className="absolute top-1/2 right-3 -translate-y-1/2 bg-[#ffffff]/80 p-1 rounded-full hover:scale-110 transition z-20"
             >
               <FiChevronRight size={18} />
             </button>
@@ -58,11 +65,11 @@ function Card({ title, imageUrls = [], description }) {
 
       {/* Text content */}
       <div className="flex-1 px-3 py-2 text-center flex flex-col justify-center items-center gap-0.5">
-        <h3 className="text-sm font-semibold text-gray-800 leading-tight truncate w-full">
-          {title}
-        </h3>
+       <h3 className="text-[1.5rem] font-semibold text-white leading-tight truncate w-full">
+  {title}
+</h3>
         {description && (
-          <p className="text-xs text-gray-600 leading-snug line-clamp-2 w-full">
+          <p className="text-xs text-white leading-snug line-clamp-2 w-full">
             <strong className="font-medium">{label && `${label}: `}</strong>
             {value}
           </p>
@@ -75,17 +82,11 @@ function Card({ title, imageUrls = [], description }) {
 /* ---------- Products section ---------- */
 export default function Products() {
   const products = [
-    {
-      title: "Corn Flakes",
-      imageUrls: ["/cornflakes.webp"],
-    },
-    {
-      title: "Frosted Flakes",
-      imageUrls: ["/frostedflakes.webp"],
-    },
+    { title: "Corn Flakes", imageUrls: ["/cornflake.jpg"] },
+    { title: "Frosted Flakes", imageUrls: ["/frostedflakes.webp"] },
     {
       title: "Quinoa Cereals",
-      imageUrls: ["/quinoa.webp", "/quinoa.webp", "/quinoa.webp", "/quinoa.webp"],
+      imageUrls: ["/quinoa.webp", "/quinoa.webp", "/quinoa.webp"],
       description:
         "Flavors : Honey & Almond , Cereal Flakes (No Added Sugar) , Fruit & Nut (No Added Sugar) , Fruit & Nut",
     },
