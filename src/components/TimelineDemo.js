@@ -66,8 +66,8 @@ export function TimelineDemo() {
       content: (
         <div className="mb-14">
           <ImageCarousel images={[
-              "/farmers.JPG",
-              "/farm.JPG",
+              "/farmers.jpg",
+              "/farm.jpg",
               "/farm2.webp",
             ]} alt="Hand Picked Farmers" />
           <p className="text-neutral-800 dark:text-neutral-200 text-sm">
