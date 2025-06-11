@@ -85,18 +85,18 @@ export default function Products() {
     },
     {
       title: "Quinoa Cereals",
-      imageUrls: ["/quinoa.webp", "/quinoa2.webp", "/quinoa3.webp", "/quinoa4.webp"],
+      imageUrls: ["/quinoa.webp", "/quinoa.webp", "/quinoa.webp", "/quinoa.webp"],
       description:
         "Flavors : Honey & Almond , Cereal Flakes (No Added Sugar) , Fruit & Nut (No Added Sugar) , Fruit & Nut",
     },
     {
       title: "Kids Range",
-      imageUrls: ["/kids.webp", "/kids2.webp"],
+      imageUrls: ["/kids.webp", "/kids.webp"],
       description: "Flavors : Choco Flakes , Froot Loops , Choco Fills",
     },
     {
       title: "Millet Muesli",
-      imageUrls: ["/muesli.webp", "/muesli2.webp"],
+      imageUrls: ["/muesli.webp", "/muesli.webp"],
       description: "Flavors : Berry Blast , Dark Chocolate , Nutty Crunchy",
     },
     {
@@ -131,7 +131,7 @@ export default function Products() {
     },
     {
       title: "Bars",
-      imageUrls: ["/bars.webp", "/bars2.webp"],
+      imageUrls: ["/bars.webp", "/bars.webp"],
       description:
         "Flavors : Meal Replacement , Almond Power Crunch , Cranberry Choco , Peanut Cocoa",
     },
