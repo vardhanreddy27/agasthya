@@ -2,21 +2,21 @@ import React from "react";
 import Image from "next/image";
 
 const onlineStores = [
-  { name: "Swiggy Instamart", src: "/instamart.PNG" },
-  { name: "Big Basket", src: "/bigbasket.PNG" },
-  { name: "Blinkit", src: "/blinkit.JPG" },
-  { name: "Zepto", src: "/zepto.PNG" },
-  { name: "Flipkart", src: "/flipkart.PNG" },
-  { name: "Amazon", src: "/amazon.PNG" },
+  { name: "Swiggy Instamart", src: "/instamart.png" },
+  { name: "Big Basket", src: "/bigbasket.png" },
+  { name: "Blinkit", src: "/blinkit.jpg" },
+  { name: "Zepto", src: "/zepto.png" },
+  { name: "Flipkart", src: "/flipkart.png" },
+  { name: "Amazon", src: "/amazon.png" },
 ];
 
 const offlineStores = [
-  { name: "Carrefour", src: "/carre.PNG" },
-  { name: "Lulu", src: "/lulu.PNG" },
-  { name: "Coop", src: "/coop.JPG" },
-  { name: "Union Coop", src: "/unicoop.PNG" },
-  { name: "Abudabi Coop", src: "/abu.PNG" },
-  { name: "Sharja Coop", src: "/sharja.JPG" },
+  { name: "Carrefour", src: "/carre.png" },
+  { name: "Lulu", src: "/lulu.png" },
+  { name: "Coop", src: "/coop.jpg" },
+  { name: "Union Coop", src: "/unicoop.png" },
+  { name: "Abudabi Coop", src: "/abu.png" },
+  { name: "Sharja Coop", src: "/sharja.jpg" },
 ];
 
 function Everywhere() {

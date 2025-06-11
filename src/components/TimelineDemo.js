@@ -109,7 +109,7 @@ export function TimelineDemo() {
               "/factoryin1.webp",
               "/factoryin2.webp",
               "/factoryin3.webp",
-              "/factoryin4.JPG",
+              "/factoryin4.jpg",
                   "/factoryin5.webp",
 
             ]}
