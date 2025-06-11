@@ -108,7 +108,7 @@ export default function Products() {
     },
     {
       title: "NutriFusion Health Mix",
-      imageUrls: ["/farmik.webp"],
+      imageUrls: ["/farmik.webp","/vanilla.webp","/van.webp"],
       description: "Flavors : Vanilla , Strawberry",
     },
     {
