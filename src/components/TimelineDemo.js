@@ -4,36 +4,29 @@ import Image from "next/image";
 import { Timeline } from "./Timeline";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-/* ---------- Animated, premium carousel ---------- */
+/* ---------- Optimized Image Carousel ---------- */
 function ImageCarousel({ src, images = [], alt, height = 250 }) {
-  const gallery = images.length ? images : [src, src, src];
+  const gallery = images.length ? images : [src];
   const [idx, setIdx] = useState(0);
-  const [fade, setFade] = useState(false);
 
   const changeImage = (direction) => {
-    setFade(true);
-    setTimeout(() => {
-      setIdx((prev) =>
-        direction === "next"
-          ? (prev + 1) % gallery.length
-          : (prev - 1 + gallery.length) % gallery.length
-      );
-      setFade(false);
-    }, 150); // match fade duration
+    setIdx((prev) =>
+      direction === "next"
+        ? (prev + 1) % gallery.length
+        : (prev - 1 + gallery.length) % gallery.length
+    );
   };
 
   return (
     <div className="relative mb-6 h-[250px] overflow-hidden rounded-lg">
       <div className="relative w-full h-full">
         <Image
-          key={idx} // important for re-render
+          key={idx}
           src={gallery[idx]}
           alt={`${alt} ${idx + 1}`}
           width={1000}
           height={height}
-          className={`absolute w-full h-full object-cover transition-opacity duration-300 ${
-            fade ? "opacity-0" : "opacity-100"
-          }`}
+          className="absolute w-full h-full object-cover transition-opacity duration-200 opacity-100"
           priority
         />
       </div>
@@ -58,18 +51,17 @@ function ImageCarousel({ src, images = [], alt, height = 250 }) {
   );
 }
 
-/* ---------- Timeline section ---------- */
+/* ---------- Timeline Section ---------- */
 export function TimelineDemo() {
   const data = [
     {
       title: "Hand Picked Farmers",
       content: (
         <div className="mb-14">
-          <ImageCarousel images={[
-              "/farmers.jpg",
-              "/farm.jpg",
-              "/farm2.webp",
-            ]} alt="Hand Picked Farmers" />
+          <ImageCarousel
+            images={["/farmers.jpg", "/farm.jpg", "/farm2.webp"]}
+            alt="Hand Picked Farmers"
+          />
           <p className="text-neutral-800 dark:text-neutral-200 text-sm">
             At Agasthya Superfoods, we collaborate with rigorously vetted
             farmers, securing uncompromised grain quality while embedding
@@ -103,17 +95,17 @@ export function TimelineDemo() {
       title: "Enhanced Extrusion Packing",
       content: (
         <div className="mb-8">
-          <ImageCarousel src="/milling.webp"
-                    images={[
+          <ImageCarousel
+            images={[
               "/milling.webp",
               "/factoryin1.webp",
               "/factoryin2.webp",
               "/factoryin3.webp",
               "/factoryin4.jpg",
-                  "/factoryin5.webp",
-
+              "/factoryin5.webp",
             ]}
-          alt="Enhanced Extrusion Packing" />
+            alt="Enhanced Extrusion Packing"
+          />
           <p className="text-neutral-800 dark:text-neutral-200 text-sm mb-2">
             Traditional stone-milling safeguards micro-nutrient density and
             authentic flavor.
@@ -139,13 +131,10 @@ export function TimelineDemo() {
       title: "Quality Check & Packing",
       content: (
         <div className="mb-14">
-          <ImageCarousel 
-                images={[
-              "/pack2.webp",
-              "/pack1.webp",
-    
-            ]}
-          alt="Quality Check & Packing" />
+          <ImageCarousel
+            images={["/pack2.webp", "/pack1.webp"]}
+            alt="Quality Check & Packing"
+          />
           <p className="text-neutral-800 dark:text-neutral-200 text-sm mb-2">
             Multi-stage precision cleaning and AI-driven sorting ensure only the
             finest grains continue through the value chain.
