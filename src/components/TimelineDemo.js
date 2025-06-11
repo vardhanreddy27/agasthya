@@ -1,28 +1,80 @@
 "use client";
+import React, { useState } from "react";
 import Image from "next/image";
-import React from "react";
 import { Timeline } from "./Timeline";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
+/* ---------- Animated, premium carousel ---------- */
+function ImageCarousel({ src, images = [], alt, height = 250 }) {
+  const gallery = images.length ? images : [src, src, src];
+  const [idx, setIdx] = useState(0);
+  const [fade, setFade] = useState(false);
+
+  const changeImage = (direction) => {
+    setFade(true);
+    setTimeout(() => {
+      setIdx((prev) =>
+        direction === "next"
+          ? (prev + 1) % gallery.length
+          : (prev - 1 + gallery.length) % gallery.length
+      );
+      setFade(false);
+    }, 150); // match fade duration
+  };
+
+  return (
+    <div className="relative mb-6 h-[250px] overflow-hidden rounded-lg">
+      <div className="relative w-full h-full">
+        <Image
+          key={idx} // important for re-render
+          src={gallery[idx]}
+          alt={`${alt} ${idx + 1}`}
+          width={1000}
+          height={height}
+          className={`absolute w-full h-full object-cover transition-opacity duration-300 ${
+            fade ? "opacity-0" : "opacity-100"
+          }`}
+          priority
+        />
+      </div>
+
+      {gallery.length > 1 && (
+        <>
+          <button
+            onClick={() => changeImage("prev")}
+            className="absolute top-1/2 left-3 -translate-y-1/2 bg-white/80 dark:bg-black/50 p-2 rounded-full shadow-md hover:scale-110 transition"
+          >
+            <FiChevronLeft size={20} />
+          </button>
+          <button
+            onClick={() => changeImage("next")}
+            className="absolute top-1/2 right-3 -translate-y-1/2 bg-white/80 dark:bg-black/50 p-2 rounded-full shadow-md hover:scale-110 transition"
+          >
+            <FiChevronRight size={20} />
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
+
+/* ---------- Timeline section ---------- */
 export function TimelineDemo() {
-  const imageHeight = 100; // Set your desired image height here
-
   const data = [
     {
-      title: "Hand Picked Farmers ",
+      title: "Hand Picked Farmers",
       content: (
         <div className="mb-14">
-          <div className="mb-4">
-            <Image
-              src="/farmers.jpg"
-              alt="Hand Picked Farmers"
-              width={1000}
-              height={imageHeight}
-              className="object-cover rounded-lg w-full h-[250px]"
-            />
-          </div>
+          <ImageCarousel images={[
+              "/farmers.JPG",
+              "/farm.JPG",
+              "/farm2.webp",
+            ]} alt="Hand Picked Farmers" />
           <p className="text-neutral-800 dark:text-neutral-200 text-sm">
-
-At Agasthya Superfoods, we proudly collaborate with trusted, hand-picked farmers who share our commitment to quality and sustainability. Every batch of oats is carefully selected at the source to ensure maximum purity and nutritional integrity. From responsible sourcing to energy-efficient processing and eco-friendly packaging, sustainability is embedded into every step of our supply chain.          </p>
+            At Agasthya Superfoods, we collaborate with rigorously vetted
+            farmers, securing uncompromised grain quality while embedding
+            sustainability across the supply chain.
+          </p>
         </div>
       ),
     },
@@ -30,45 +82,54 @@ At Agasthya Superfoods, we proudly collaborate with trusted, hand-picked farmers
       title: "Farm to Factory",
       content: (
         <div className="mb-14">
-          <div className="mb-4">
-            <Image
-              src="/farmtofactory.webp"
-              alt="Farm to Factory"
-              width={1000}
-              height={imageHeight}
-              className="object-cover rounded-lg w-full h-[250px]"
-            />
-          </div>
+          <ImageCarousel
+            images={[
+              "/factory1.webp",
+              "/factory2.webp",
+              "/factory3.webp",
+              "/factory4.webp",
+            ]}
+            alt="Farm to Factory"
+          />
           <p className="text-neutral-800 dark:text-neutral-200 text-sm">
-From farm to factory, we prioritize sustainability at every step. Our ingredients are responsibly sourced from trusted farmers, processed using energy-efficient methods, and packaged with eco-conscious materials. At Agasthya Superfoods, we are committed to reducing our environmental impact — ensuring every product you enjoy supports both your health and the planet.          </p>
+            Our vertically integrated ecosystem optimizes energy-efficient
+            processing and eco-conscious packaging to deliver maximum
+            nutritional value with minimal environmental impact.
+          </p>
         </div>
       ),
     },
-      {
+    {
       title: "Enhanced Extrusion Packing",
       content: (
         <div className="mb-8">
-          <div className="mb-4">
-            <Image
-              src="/milling.webp"
-              alt="Enhanced Extrusion Packing"
-              width={1000}
-              height={imageHeight}
-              className="object-cover rounded-lg w-full h-[250px]"
-            />
-          </div>
+          <ImageCarousel src="/milling.webp"
+                    images={[
+              "/milling.webp",
+              "/factoryin1.webp",
+              "/factoryin2.webp",
+              "/factoryin3.webp",
+              "/factoryin4.JPG",
+                  "/factoryin5.webp",
+
+            ]}
+          alt="Enhanced Extrusion Packing" />
           <p className="text-neutral-800 dark:text-neutral-200 text-sm mb-2">
-            We preserve the rich nutrients and authentic flavor of oats through traditional stone milling techniques.
+            Traditional stone-milling safeguards micro-nutrient density and
+            authentic flavor.
           </p>
           <ul className="list-none text-neutral-800 dark:text-neutral-200 text-sm space-y-1">
             <li className="flex items-start">
-              <span className="mr-2">✓</span> Slow milling process retains essential fiber and vitamins.
+              <span className="mr-2">✓</span> Slow milling retains fiber and
+              vitamins.
             </li>
             <li className="flex items-start">
-              <span className="mr-2">✓</span> No excessive heat – keeps oats naturally fresh.
+              <span className="mr-2">✓</span> Zero excessive heat preserves
+              freshness.
             </li>
             <li className="flex items-start">
-              <span className="mr-2">✓</span> Eco-friendly packaging ensures sustainability.
+              <span className="mr-2">✓</span> Eco-friendly packaging reinforces
+              sustainability.
             </li>
           </ul>
         </div>
@@ -78,36 +139,33 @@ From farm to factory, we prioritize sustainability at every step. Our ingredient
       title: "Quality Check & Packing",
       content: (
         <div className="mb-14">
-          <div className="mb-4">
-            <Image
-              src="/factroy1.webp"
-              alt="Quality Check & Packing"
-              width={1000}
-              height={imageHeight}
-              className="object-cover rounded-lg w-full h-[250px]"
-            />
-          </div>
+          <ImageCarousel 
+                images={[
+              "/pack2.webp",
+              "/pack1.webp",
+    
+            ]}
+          alt="Quality Check & Packing" />
           <p className="text-neutral-800 dark:text-neutral-200 text-sm mb-2">
-After sourcing, every ingredient undergoes a meticulous quality check and a multi-stage cleaning process — ensuring only the finest grains and superfoods reach your table.
-
-
-
-      </p>
+            Multi-stage precision cleaning and AI-driven sorting ensure only the
+            finest grains continue through the value chain.
+          </p>
           <ul className="list-none text-neutral-800 dark:text-neutral-200 text-sm space-y-1">
             <li className="flex items-start">
-              <span className="mr-2">✅ </span>Precision Sorting: Advanced technology eliminates unwanted impurities.
+              <span className="mr-2">✅</span> Advanced impurity elimination.
             </li>
             <li className="flex items-start">
-              <span className="mr-2">🌿 </span> Deep Cleaning Cycles: Multiple passes remove dust, husks, and foreign particles.
+              <span className="mr-2">🌿</span> Deep-clean cycles remove dust and
+              husks.
             </li>
             <li className="flex items-start">
-              <span className="mr-2">🧼 </span> Hygiene Assured: Strict standards preserve natural purity, flavor, and freshness.    
+              <span className="mr-2">🧼</span> Strict hygiene preserves flavor
+              integrity.
             </li>
           </ul>
         </div>
       ),
     },
-  
   ];
 
   return (
