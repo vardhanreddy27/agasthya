@@ -18,32 +18,29 @@ gsap.registerPlugin(ScrollTrigger);
 export function FeaturesSectionDemo() {
   const cardsRef = useRef([]);
 
-  useEffect(() => {
-    cardsRef.current.forEach((card, i) => {
-      if (!card) return;
-      const elements = card.querySelectorAll(".feature-animate");
+useEffect(() => {
+  cardsRef.current.forEach((card, i) => {
+    if (!card) return;
 
-      gsap.set(elements, {
-        y: 60,
-        opacity: 0,
-        clipPath: "inset(100% 0% 0% 0%)",
-      });
-
-      gsap.to(elements, {
-        y: 0,
-        opacity: 1,
-        clipPath: "inset(0% 0% 0% 0%)",
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
+    gsap.set(card, {
+      opacity: 0,
     });
-  }, []);
+
+    gsap.to(card, {
+      opacity: 1,
+      duration: 0.3,
+      ease: "power2.out",
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+}, []);
+
+
 
   const features = [
     {

@@ -22,28 +22,27 @@ function Ingredients() {
   const cardRefs = useRef([]);
 
   useEffect(() => {
-    cardRefs.current.forEach((el, index) => {
-      gsap.fromTo(
-        el,
-        {
-          opacity: 0,
-          y: 50,
+  cardRefs.current.forEach((el, index) => {
+    gsap.fromTo(
+      el,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+        delay: index * 0.1,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none",
         },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-          delay: index * 0.1, // staggered delay
-        }
-      );
-    });
-  }, []);
+      }
+    );
+  });
+}, []);
+
 
   return (
     <div className="bg-[#F6F1EB] py-6">

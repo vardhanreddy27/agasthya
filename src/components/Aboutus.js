@@ -67,8 +67,8 @@ function Aboutus() {
         {/* Image */}
         <div className="w-full md:w-1/2">
           <img
-            src="/aboutus.webp"
-            alt="Agasthya SuperFoods Products"
+            src="/farmtofactory.webp"
+            alt="Agasthya SuperFoods "
             className="rounded-xl shadow-md"
           />
         </div>
