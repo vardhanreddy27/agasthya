@@ -48,8 +48,16 @@ const contactDetails = {
     contacts: [
       {
         name: "Manoj Sukumaran",
-        phone: "+61 426616166",
+        phone: "+61 452345773",
         email: "manoj@futureascenttrade.com.au",
+      },
+    ],
+  }, "New Zealand": {
+    address: "75 Henry Road, Taupiri 3791, New Zealand", 
+    contacts: [
+      {
+        name: "Tisson Thomas",
+        phone: "+64 210357807",
       },
     ],
   },
@@ -120,13 +128,16 @@ export function WorldMapDemo() {
                       </AccordionTrigger>
                       <AccordionContent className="text-sm text-gray-700 space-y-2">
                         <p className="whitespace-pre-wrap">{data.address}</p>
-                        {data.contacts.map((contact, i) => (
-                          <div key={i}>
-                            <p><strong>Name:</strong> {contact.name}</p>
-                            <p><strong>Phone:</strong> {contact.phone}</p>
-                            <p className="break-words"><strong>Email:</strong> {contact.email}</p>
-                          </div>
-                        ))}
+                      {data.contacts.map((contact, i) => (
+  <div key={i}>
+    <p><strong>Name:</strong> {contact.name}</p>
+    <p><strong>Phone:</strong> {contact.phone}</p>
+    {contact.email && (
+      <p className="break-words"><strong>Email:</strong> {contact.email}</p>
+    )}
+  </div>
+))}
+
                       </AccordionContent>
                     </AccordionItem>
                   ))}
