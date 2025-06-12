@@ -3,22 +3,17 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-/* ---------- Fixed-size card with animated carousel ---------- */
+/* ---------- Fixed-size card with instant carousel ---------- */
 function Card({ title, imageUrls = [], description }) {
   const gallery = imageUrls.length ? imageUrls : ["/placeholder.webp"];
   const [idx, setIdx] = useState(0);
-  const [fading, setFading] = useState(false);
 
   const change = (dir) => {
-    setFading(true);
-    setTimeout(() => {
-      setIdx((p) =>
-        dir === "next"
-          ? (p + 1) % gallery.length
-          : (p - 1 + gallery.length) % gallery.length
-      );
-      setFading(false);
-    }, 200);
+    setIdx((p) =>
+      dir === "next"
+        ? (p + 1) % gallery.length
+        : (p - 1 + gallery.length) % gallery.length
+    );
   };
 
   const [label = "", value = ""] = (description ?? "").split(/:\s*/);
@@ -34,12 +29,8 @@ function Card({ title, imageUrls = [], description }) {
             alt={`${title} ${i + 1}`}
             width={1000}
             height={300}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ease-in-out ${
-              i === idx
-                ? fading
-                  ? "opacity-0 scale-95"
-                  : "opacity-100 scale-100 z-10"
-                : "opacity-0"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-150 ${
+              i === idx ? "opacity-100 z-10" : "opacity-0"
             }`}
             priority={i === idx}
           />
@@ -65,9 +56,9 @@ function Card({ title, imageUrls = [], description }) {
 
       {/* Text content */}
       <div className="flex-1 px-3 py-2 text-center flex flex-col justify-center items-center gap-0.5">
-       <h3 className="text-[1.5rem] font-semibold text-white leading-tight truncate w-full">
-  {title}
-</h3>
+        <h3 className="text-[1.5rem] font-semibold text-white leading-tight truncate w-full">
+          {title}
+        </h3>
         {description && (
           <p className="text-xs text-white leading-snug line-clamp-2 w-full">
             <strong className="font-medium">{label && `${label}: `}</strong>
@@ -108,7 +99,7 @@ export default function Products() {
     },
     {
       title: "NutriFusion Health Mix",
-      imageUrls: ["/farmik.webp","/vanilla.webp","/van.webp"],
+      imageUrls: ["/farmik.webp", "/vanilla.webp", "/van.webp"],
       description: "Flavors : Vanilla , Strawberry",
     },
     {

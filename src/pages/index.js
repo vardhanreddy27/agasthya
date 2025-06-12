@@ -16,6 +16,7 @@ import HeroSection from '@/components/HeroSection';
 import Band from '@/components/Band';
 import Welcome from '@/components/Welcom';
 import Ourpl from '@/components/Ourpl';
+import Organic from '@/components/Organic';
 function index() {
   return (
     <div>
@@ -23,12 +24,14 @@ function index() {
       <Welcome />
       <Band />
 <FeaturesSectionDemo />
+
 <Ingredients />
       <HeroSection />
       <Certified />
             <Infinate />
 
       <Features />
+      <Organic />
       <Ourpl />
       <Banner />
       <TimelineDemo />
