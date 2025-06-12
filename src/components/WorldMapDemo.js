@@ -58,6 +58,8 @@ const contactDetails = {
       {
         name: "Tisson Thomas",
         phone: "+64 210357807",
+        email: "tisson@futureascenttrade.com.au",
+
       },
     ],
   },
