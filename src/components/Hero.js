@@ -6,13 +6,11 @@ import {
   FaFacebookF,
   FaLinkedinIn,
   FaYoutube,
-  FaChevronDown,
   FaBars,
   FaTimes,
 } from 'react-icons/fa';
 
 const Hero = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -45,27 +43,11 @@ const Hero = () => {
           <Link href="/" className='hover:text-gray-600 transition-colors'>Home</Link>
           <Link href="/About" className='hover:text-gray-600 transition-colors'>About</Link>
 
-          <div
-            className='relative group'
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
-          >
-            <Link
-              href="/Brands"
-              className='flex items-center gap-1 hover:text-gray-600 transition-colors'
-            >
-              Brands <FaChevronDown size={12} />
-            </Link>
-            {isDropdownOpen && (
-              <div className='absolute top-6 left-0 w-32 bg-white shadow-md rounded-md py-2 z-50'>
-                <Link href='/Nutrixmenu' className='block px-4 py-2 hover:bg-gray-100'>Nutrix</Link>
-                <Link href='/Nutrixmenu' className='block px-4 py-2 hover:bg-gray-100'>Farmik</Link>
-              </div>
-            )}
-          </div>
+          {/* Visually normal but disabled */}
+          <span className='text-black hover:text-gray-600 transition-colors cursor-not-allowed select-none'>Products</span>
+          <span className='text-black hover:text-gray-600 transition-colors cursor-not-allowed select-none'>Media</span>
 
           <Link href="/Contact" className='hover:text-gray-600 transition-colors'>Contact</Link>
-          <Link href="/" className='hover:text-gray-600 transition-colors'>Shop</Link>
         </nav>
       </div>
 
@@ -83,14 +65,9 @@ const Hero = () => {
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           <Link href="/About" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
 
-          {/* Dropdown for Brands in Mobile */}
-          <details>
-            <summary className="cursor-pointer">Brands</summary>
-            <div className="ml-4 flex flex-col gap-1">
-              <Link href='/' onClick={() => setIsMobileMenuOpen(false)}>Nutrix</Link>
-              <Link href='/' onClick={() => setIsMobileMenuOpen(false)}>Farmik</Link>
-            </div>
-          </details>
+          {/* Visually normal but disabled */}
+          <span className='text-black hover:text-gray-600 transition-colors cursor-not-allowed select-none'>Products</span>
+          <span className='text-black hover:text-gray-600 transition-colors cursor-not-allowed select-none'>Media</span>
 
           <Link href="/Contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Shop</Link>
