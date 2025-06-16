@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Ourpl() {
   return (
-    <section className="bg-white py-12 px-4">
+    <section className="bg-white pb-12 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Column - Image */}
         <div>

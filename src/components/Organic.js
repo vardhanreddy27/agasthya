@@ -4,8 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 
 function Organic() {
   return (
-    <div className="px-4 sm:px-12 lg:px-20 bg-white py-16">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800">
+    <div className="px-4 sm:px-12 lg:px-20 bg-white">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-20 text-gray-800">
         Our Organic Farm in Talakondapally
       </h1>
 

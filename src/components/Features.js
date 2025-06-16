@@ -15,26 +15,26 @@ const Features = () => {
   const images = [
     "/100organic.png",
     "/certified.png",
-    "/glutenfree.png",
+    "/trusted.webp",
     "/artificialpreservatives.png",
   ];
 
   const features = [
     {
-      title: "100% Natural",
-      text: "Our products are made from the finest, naturally grown ingredients free from pesticides, chemicals.",
+      title: "Ancient Grains, Modern Science",
+      text: "We blend the richness of traditional grains with cutting-edge food tech to deliver maximum value",
     },
     {
-      title: "Certified",
-      text: "We are certified for the quality and safety, ensuring our superfoods meet global health standards.",
+      title: "Globally Certified Facility",
+      text: "Globally Certified: BRC, FSSC 22000 v6, GMP, HACCP, USFDA, FSSAI, FoSTaC & HALAL — built for quality, safety, and trust.",
     },
     {
-      title: "Made with Ancient Grains",
-      text: "Our products are made with ancient grains to deliver time-tested nutrition with modern-day health benefits.",
+      title: "Trusted Market Presence",
+      text: "We deliver affordable, premium health foods across multiple categories, supported by a fast, scalable supply chain.",
     },
     {
-      title: "No Artificial Sweeteners",
-      text: "We believe in clean nutrition—no artificial flavors, sweeteners, or preservatives.",
+      title: " Wellness Focused",
+      text: "Our wellness range is crafted for daily health. Backed by Ayurveda and modern nutrition, we deliver clean, lifestyle-driven choices for all ages.",
     },
   ];
 
