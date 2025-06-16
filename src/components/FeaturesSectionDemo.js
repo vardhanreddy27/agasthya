@@ -4,99 +4,97 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
-  FaLeaf,
-  FaTag,
-  FaShieldAlt,
-  FaStore,
-  FaHeadset,
-  FaUser,
+  FaCogs,
+  FaRecycle,
+  FaFlask,
+  FaWarehouse,
+  FaStream,
+  FaGlobe,
 } from "react-icons/fa";
-import { FcLike, FcCollaboration } from "react-icons/fc";
+import {  GiTestTubes,  GiModernCity } from "react-icons/gi";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function FeaturesSectionDemo() {
   const cardsRef = useRef([]);
 
-useEffect(() => {
-  cardsRef.current.forEach((card, i) => {
-    if (!card) return;
+  useEffect(() => {
+    cardsRef.current.forEach((card, i) => {
+      if (!card) return;
 
-    gsap.set(card, {
-      opacity: 0,
+      gsap.set(card, {
+        opacity: 0,
+      });
+
+      gsap.to(card, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out",
+        delay: i * 0.1,
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
     });
-
-    gsap.to(card, {
-      opacity: 1,
-      duration: 0.3,
-      ease: "power2.out",
-      delay: i * 0.1,
-      scrollTrigger: {
-        trigger: card,
-        start: "top 90%",
-        toggleActions: "play none none none",
-      },
-    });
-  });
-}, []);
-
-
+  }, []);
 
   const features = [
     {
-      title: "Committed to Health",
+      title: "State-of-the-Art Manufacturing",
       description:
-        "At Agasthya Superfoods, we prioritize your well-being by offering millet-based, wholesome, and nutritionally balanced food options crafted to support a healthier lifestyle for all ages.",
-      icon: <FcLike className="text-3xl feature-animate" />,
+        "Our factory is equipped with advanced automation and modern machinery that ensures precision, consistency, and large-scale output. We meet global food safety and hygiene standards.",
+      icon: <GiModernCity className="text-indigo-600 text-3xl feature-animate" />,
     },
     {
-      title: "Sustainably Sourced",
+      title: "Dual In-House Labs",
       description:
-        "We are committed to sustainability. All our ingredients are responsibly sourced, ensuring minimal environmental impact while supporting local agriculture.",
-      icon: <FaLeaf className="text-green-600 text-3xl feature-animate" />,
+        "We maintain both a General Quality Lab and a dedicated Microbiology Lab to ensure every product batch meets stringent safety and nutritional standards.",
+      icon: <GiTestTubes className="text-red-500 text-3xl feature-animate" />,
     },
     {
-      title: "Affordable Nutrition",
+      title: "Robust R&D & Product Innovation",
       description:
-        "Nutrition should never be a luxury. Our superfoods deliver premium quality at affordable prices, making healthy living accessible for everyone.",
-      icon: <FaTag className="text-yellow-500 text-3xl feature-animate" />,
+        "Our in-house R&D team works closely with nutritionists and food technologists to create and refine health-focused food products.",
+      icon: <FaFlask className="text-yellow-500 text-3xl feature-animate" />,
     },
     {
-      title: "Quality Assurance",
+      title: "Cost-Effective Manufacturing",
       description:
-        "With FSSC 22000, HACCP, GMP, and other certifications, we follow world-class quality protocols from sourcing to packaging, ensuring consistency, safety, and taste in every bite.",
-      icon: <FaShieldAlt className="text-blue-500 text-3xl feature-animate" />,
+        "We optimize supply chains and leverage our scale to deliver high-quality products at highly competitive pricing.",
+      icon: <FaCogs className="text-blue-500 text-3xl feature-animate" />,
     },
     {
-      title: "Multi Product Range",
+      title: "End-to-End Traceability",
       description:
-        "From breakfast cereals and porridges to snacks and health mixes, our diverse range of millet and superfood products caters to every taste, age, and lifestyle.",
-      icon: <FaStore className="text-purple-500 text-3xl feature-animate" />,
+        "From raw material sourcing to final packaging, every step in our production process is fully traceable for superior quality control.",
+      icon: <FaStream className="text-green-500 text-3xl feature-animate" />,
     },
     {
-      title: "24/7 Customer Support",
+      title: "Sustainably Engineered Supply Chain",
       description:
-        "Our dedicated support team is always ready to assist you—whether you're a customer, distributor, or private label partner.",
-      icon: <FaHeadset className="text-pink-500 text-3xl feature-animate" />,
+        "Our operations reduce food waste, maximize resource efficiency, and partner with sustainable ingredient suppliers.",
+      icon: <FaRecycle className="text-emerald-600 text-3xl feature-animate" />,
     },
     {
-      title: "Innovation-Driven Manufacturing",
+      title: "Flexible Multi-Category Production",
       description:
-        "With advanced food processing infrastructure and a dedicated R&D team, we continuously innovate to create nutritious, tasty, and scalable superfood solutions.",
-      icon: <FcCollaboration className="text-3xl feature-animate" />,
+        "We manufacture a wide range of product types — from cereals and bars to mixes and snacks — ideal for multi-SKU brands.",
+      icon: <FaWarehouse className="text-purple-500 text-3xl feature-animate" />,
     },
     {
-      title: "Wellness First",
+      title: "Global-Standard Compliance",
       description:
-        "Our mission is to enhance everyday wellness through food by blending tradition, science, and nature in every product we create.",
-      icon: <FaUser className="text-rose-500 text-3xl feature-animate" />,
+        "We comply with FSSAI, ISO, HACCP and more — ensuring we are audit-ready for export and private-label partnerships.",
+      icon: <FaGlobe className="text-blue-500 text-3xl feature-animate" />,
     },
   ];
 
   return (
     <section className="py-10 px-4 md:px-10 bg-white text-neutral-800">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold ">Why Choose Agasthya</h2>
+        <h2 className="text-3xl md:text-4xl font-bold">Why Choose Agasthya</h2>
         <p className="text-base md:text-lg pt-3 text-gray-700">
           Committed to Your Health and Wellness
         </p>
