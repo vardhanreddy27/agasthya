@@ -4,13 +4,13 @@ import { Marquee } from "./Marquee";
 
 export function ThreeDMarqueeDemo() {
   const images = [
-    "/flakesbanner.webp",
-    "/farmik.webp",
-    "/snacksbanner.webp",
-    "/chocoflakesgpt.webp",
-    "/berryblastwithbg.webp",
-    "/MilletMuesliBelgianDarkChocolate.jpg",
-    "/banner4.jpg",
+    "/factoryin1.webp",
+    "/factory4.webp",
+    "/factoryinn5.webp",
+    "/factory3.webp",
+    "/factory1.webp",
+    "/farmtofactory.webp",
+    "/factory2.webp",
   ];
 
   // Repeat the images for a seamless marquee effect
