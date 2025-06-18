@@ -148,12 +148,14 @@ export default function HeroSection() {
             ref={headingRef}
             className="text-3xl md:text-5xl font-bold leading-tight mb-4 text-gray-900 overflow-hidden opacity-0"
           >
-            Reimagining Nutrition for Modern Living
+         Engineered Nutrition, Backed by Science
+
+
             <br />
-            <span className="text-[rgb(157,37,45)]">AGASTHYA SUPERFOODS</span>
+            <span className="text-[rgb(157,37,45)]">AGASTHYA SUPERFOOD</span>
           </h1>
           <p className="text-gray-600 mt-2 max-w-xl mx-auto lg:mx-0 text-base md:text-lg">
-            Discover our latest innovations — from protein-packed Milk Mixes to crunchy Ragi Fills and wholesome Millet Mueslis ✨
+From in-house R&D and microbiology labs to automated production lines and global compliance certifications - we don’t just make food, we engineer trust. 
           </p>
           <div className="flex justify-center lg:justify-start gap-4 mt-6 flex-wrap">
             <Link href="/Contact" passHref>

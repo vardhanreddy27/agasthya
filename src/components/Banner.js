@@ -24,7 +24,7 @@ const slides = [
     ],
   },
   {
-    image: "/milkmix.png",
+    image: "/milkmix.webp",
     heading: "Daily Nutrition for Growing Kids",
     description:
       "Nutrix Nutri Fusion – A multigrain powerhouse enriched with essential vitamins and minerals for active kids.",
