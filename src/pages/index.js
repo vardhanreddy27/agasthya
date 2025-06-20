@@ -13,7 +13,6 @@ import Banner from '@/components/Banner';
 import Ingredients from '@/components/Ingredients';
 import { FeaturesSectionDemo } from '@/components/FeaturesSectionDemo';
 import HeroSection from '@/components/HeroSection';
-import Band from '@/components/Band';
 import Welcome from '@/components/Welcom';
 import Ourpl from '@/components/Ourpl';
 import Organic from '@/components/Organic';
@@ -22,7 +21,6 @@ function index() {
     <div>
       <Hero />
       <Welcome />
-      <Band />
 <FeaturesSectionDemo />
 
 <Ingredients />
