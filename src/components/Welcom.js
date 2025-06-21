@@ -83,7 +83,7 @@ function Welcome() {
             className="text-2xl sm:text-4xl lg:text-4xl font-bold leading-tight overflow-hidden opacity-0 invisible"
             style={{ lineHeight: "3.5rem" }}
           >
-            Agastya SuperFoods
+            Agasthya Superfoods
           </h1>
 
           {/* Animated Subtitle */}
