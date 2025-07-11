@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 
 import React, { useEffect } from "react";
 import Image from "next/image";
@@ -96,12 +97,12 @@ function Welcome() {
 
           {/* CTA + Animated Icons */}
           <div className="flex flex-wrap justify-center lg:justify-start items-center gap-3 pt-4">
-            <button
+           <Link href="/Contact"><button
               id="shop-button"
               className="bg-[rgb(157,37,45)] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition opacity-0 invisible"
             >
-              Contact Us
-            </button>
+             Become a Partner
+            </button></Link> 
             <VscWorkspaceTrusted id="icon-1" className="text-2xl opacity-0 invisible" />
             <PiHandHeartDuotone id="icon-2" className="text-3xl opacity-0 invisible" />
             <LiaCertificateSolid id="icon-3" className="text-3xl opacity-0 invisible" />
