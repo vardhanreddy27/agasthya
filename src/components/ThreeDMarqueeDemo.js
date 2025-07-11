@@ -5,13 +5,13 @@ import Image from "next/image";
 
 export function ThreeDMarqueeDemo() {
   const images = [
+    "/factory2.webp",
     "/factoryin1.webp",
     "/factory4.webp",
     "/factoryin5.webp",
     "/factory3.webp",
     "/factory1.webp",
     "/farmtofactory.webp",
-    "/factory2.webp",
   ];
 
   const captions = [
