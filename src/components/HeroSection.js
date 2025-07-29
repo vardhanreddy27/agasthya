@@ -160,14 +160,10 @@ From in-house R&D and microbiology labs to automated production lines and global
           <div className="flex justify-center lg:justify-start gap-4 mt-6 flex-wrap">
             <Link href="/Contact" passHref>
               <button className="bg-[rgb(157,37,45)] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
-                Contact Us
-              </button>
-            </Link>
-            <Link href="/Contact" passHref>
-              <button className="border border-[rgb(157,37,45)] text-[rgb(157,37,45)] px-6 py-3 rounded-full text-sm font-medium hover:bg-[rgb(157,37,45)] hover:text-white transition">
                 Become a Partner
               </button>
             </Link>
+        
           </div>
           <div className="mt-6 text-sm text-gray-500">
             Naturally Sourced · Trusted by 1000+ Retailers
