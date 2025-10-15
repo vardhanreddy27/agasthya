@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+.motion-image {
+  will-change: transform;
+}
+html {
+  scroll-behavior: smooth;
+}
+.primarycolor { 
+  background-color: rgb(157 37 45)!important;
+  color: white;
+}
+.accentcolor{
+    background: #82D7D2;
+}.spacer {
+	height: 100vh;
+}
+.title{
+  font-size: 4rem;
+  line-height: 5.6rem;
+  }.sub{
+    line-height: 3.6rem;
+  }
+  .main-text{
+    font-size: 2rem;
+  }
+  .word{
+    transform: translateY(115px);
+    transition: transform .5s;
+  }.band-text {
+  display: inline-block;
+  will-change: transform, opacity, clip-path;
+}
+
+  .animate2{clip-path: polygon(0 0, 100% 0, 100% 150%, 0% 100%);}
+.animate{
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}.l{
+	margin-top: 1rem;
+}
+.secondarycolor{
+ color: #69696930
+}
+.screenheight{
+height: 87vh;
+
+}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    
+  }
+}
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 140px); /* Reduced from 200px to 120px */
+  gap: 6px; /* Slightly smaller gap */
+}
+.overlay-box {
+  position: relative;
+  background-image: url('/berryblastwithbg.webp');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  padding: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 0; /* Ensure text is above the overlay */
+}
+
+.overlay-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+  z-index: -1; /* Place behind text */
+  border-radius: 12px;
+}
+.text-box h1 {
+  color: #b62431;
+  
+}.primarycolorfont {
+  color: #b62431;
+  
+}
+
+
+
+.image-box {
+  background-image: url('/berryblastwithbg.webp');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px; /* Add this */
+  overflow: hidden;    /* Optional */
+}
+
+
+
+.div1 {
+  background-image: url('/berryblastwithbg.webp'); /* New image */
+}
+
+/* Grid positions */
+.div2 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.div3 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.div15 {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+
+.div17 {
+  background-image: url('/packages.webp'); /* New image */
+
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.div18 {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.div19 {
+  grid-column-start: 4;
+  grid-row-start: 3;
+  background-color: #f7efdf;
+  border-radius: 12px;
+
+}
+
+.div20 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.div21 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
