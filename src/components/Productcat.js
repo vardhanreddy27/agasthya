@@ -2,223 +2,316 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { PhotoIcon, SparklesIcon } from '@heroicons/react/24/solid';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-// --- UPDATED DATA BASED ON THE PROVIDED SPREADSHEET, WITH CORRECTIONS FOR TYPOS AND COMPLETENESS ---
+gsap.registerPlugin(ScrollTrigger);
 const productCatalog = {
-  "Crisps": {
-    "Rice Crisps": [{ sku: "Rice Crisps", variants: ["Regular"] }],
-    "Jowar/Sorghum Crisps": [{ sku: "Jowar/Sorghum Crisps", variants: ["Regular"] }],
-    "Ragi/Finger Millet Crisps": [{ sku: "Ragi/Finger Millet Crisps", variants: ["Regular"] }],
-    "Multi-Millet Crisps": [{ sku: "Multi-Millet Crisps", variants: ["Regular"] }],
-  },
-  "Regular": {
-    "Corn Flakes": [{ sku: "Corn Flakes", variants: ["Honey & Almond", "Regular"] }],
-    "Frosted Flakes": [{ sku: "Frosted Flakes", variants: ["Regular"] }],
-    "Multigrain Flakes": [{ sku: "Multigrain Flakes", variants: ["Regular"] }],
-    "Multigrain Cereal Flakes": [{ sku: "Multigrain Cereal Flakes", variants: ["Adults"] }],
-    "Multigrain Fills": [{ sku: "Multigrain Fills", variants: ["Regular"] }],
-    "Multigrain Chocos": [{ sku: "Multigrain Chocos", variants: ["Chocolate"] }],
-  },
-  "Kids Favorite": {
-    "Chocos": [{ sku: "Chocos", variants: ["Regular"] }],
-    "Choco Balls": [{ sku: "Choco Balls", variants: ["Regular"] }],
-    "Choco Fills": [{ sku: "Choco Fills", variants: ["Red Velvet", "Banana Caramel", "Strawberry", "Vanilla", "Chocolate"] }],
-    "Froot Loops": [{ sku: "Froot Loops", variants: ["Regular"] }],
-  },
-  "Superfoods - Flakes": {
-    "Ragi/Finger Millet Rolled Flakes": [{ sku: "Ragi/Finger Millet Rolled Flakes", variants: ["Regular"] }],
-    "Bajra/Pearl Millet Rolled Flakes": [{ sku: "Bajra/Pearl Millet Rolled Flakes", variants: ["Regular"] }],
-    "Jowar/Sorghum Rolled Flakes": [{ sku: "Jowar/Sorghum Rolled Flakes", variants: ["Regular"] }],
-    "Quinoa Flakes": [{ sku: "Quinoa Flakes", variants: ["Regular"] }],
-    "Ragi/Finger Millet Flakes": [{ sku: "Ragi/Finger Millet Flakes", variants: ["Regular"] }],
-    "Multi-Millet Flakes": [{ sku: "Multi-Millet Flakes", variants: ["Regular"] }],
-    "Multi-Millet Chocos": [{ sku: "Multi-Millet Chocos", variants: ["Regular"] }],
-    "Quinoa Chocos": [{ sku: "Quinoa Chocos", variants: ["Regular"] }],
-    "Ragi/Finger Millet Chocos": [{ sku: "Ragi/Finger Millet Chocos", variants: ["Regular"] }],
-    "Ragi/Finger Millet Fills": [{ sku: "Ragi/Finger Millet Fills", variants: ["Red Velvet", "Banana Caramel", "Strawberry", "Vanilla", "Chocolate"] }],
-    "Multi-Millet Fills": [{ sku: "Multi-Millet Fills", variants: ["Chocolate"] }],
-    "Quinoa Cereal Flakes": [{ sku: "Quinoa Cereal Flakes", variants: ["Honey & Almond", "Regular"] }],
-  },
-  "Superfoods - Muesli": {
-    "Quinoa Muesli - Fruit & Nut": [{ sku: "Quinoa Muesli - Fruit & Nut", variants: ["Regular", "No Added Sugar"] }],
-    "Millet Muesli": [{ sku: "Millet Muesli", variants: ["Berry Blast", "Nutty Crunchy", "Belgian Dark Chocolate"] }],
-  },
-  "Savoury Snacks": {
-    "Puffs/Balls/Rings/Curls- Corn": [{ sku: "Puffs/Balls/Rings/Curls- Corn", variants: ["Desi-Masala", "Tangy Tomato", "Peri-Peri", "Nacho Cheese", "Sweet Chilli", "Sour Cream & Onion"] }],
-    "Puffs/Balls/Curls - Multi-Millet": [{ sku: "Puffs/Balls/Curls - Multi-Millet", variants: ["Desi-Masala", "Tangy Tomato", "Peri-Peri", "Nacho Cheese", "Sweet Chilli", "Sour Cream & Onion"] }],
-    "Rings - Quinoa": [{ sku: "Rings - Quinoa", variants: ["Desi-Masala", "Tangy Tomato", "Peri-Peri", "Nacho Cheese", "Sweet Chilli", "Sour Cream & Onion"] }],
-    "Wavy Chips - High Protein": [{ sku: "Wavy Chips - High Protein", variants: ["Desi-Masala", "Tangy Tomato", "Peri-Peri", "Nacho Cheese", "Sweet Chilli", "Sour Cream & Onion"] }],
-    "Veggie Sticks": [{ sku: "Veggie Sticks", variants: ["Desi-Masala", "Tangy Tomato", "Peri-Peri", "Nacho Cheese", "Sweet Chilli", "Sour Cream & Onion"] }],
-    "Protein - GP - Puffs/Curls/Balls/Rings": [{ sku: "Protein - GP - Puffs/Curls/Balls/Rings", variants: ["Desi-Masala", "Tangy Tomato", "Peri-Peri", "Nacho Cheese", "Sweet Chilli", "Sour Cream & Onion"] }],
-    "Makhana": [{ sku: "Makhana", variants: ["Plain", "Roasted", "Peri-Peri", "Mint"] }],
-  },
-  "Nutrition Bars": {
-    "Millet Bar": [{ sku: "Millet Bar", variants: ["Fruits & Berries", "Nuts & Seeds", "Peanut"] }],
-    "Protein Bar": [{ sku: "Protein Bar", variants: ["Peanut Cocoa", "Peanut Butter", "Cranberry"] }],
-    "Snack Bar": [{ sku: "Snack Bar", variants: ["Almond Choco", "Cranberry"] }],
-    "Meal Replacement Bar": [{ sku: "Meal Replacement Bar", variants: ["Multigrain"] }],
-  },
-  "Ready-to-Cook": {
-    "Millet Porridge": [{ sku: "Millet Porridge", variants: ["Mixed Vegetables", "Tangy Tomato & Onion", "Apple & Cinnamon", "Mixed Fruit & Chocolate"] }],
-    "Health Mix - Adults": [{ sku: "Health Mix - Adults", variants: ["Strawberry", "Vanilla", "Malt"] }],
-    "Health Mix - Kids": [{ sku: "Health Mix - Kids", variants: ["Strawberry", "Vanilla", "Malt"] }],
-  },
-  "Flour": {
-    "Jowar/Sorghum Flour": [{ sku: "Jowar/Sorghum Flour", variants: ["Regular"] }],
-    "Bajra/Pearl Millet Flour": [{ sku: "Bajra/Pearl Millet Flour", variants: ["Regular"] }],
-    "Ragi/Finger Millet Flour": [{ sku: "Ragi/Finger Millet Flour", variants: ["Regular"] }],
-  },
-  "Semolina": {
-    "Idly Rawa": [
-      { sku: "Jowar/Sorghum Idly Rawa", variants: ["Regular"] },
-      { sku: "Bajra/Pearl Millet Idly Rawa", variants: ["Regular"] },
-      { sku: "Ragi/Finger Millet Idly Rawa", variants: ["Regular"] },
-      { sku: "Multi-Millet Idly Rawa", variants: ["Regular"] },
-    ],
-    "Upma Rawa": [
-      { sku: "Jowar/Sorghum Upma Rawa", variants: ["Regular"] },
-      { sku: "Bajra/Pearl Millet Upma Rawa", variants: ["Regular"] },
-      { sku: "Ragi/Finger Millet Upma Rawa", variants: ["Regular"] },
-      { sku: "Multi-Millet Upma Rawa", variants: ["Regular"] },
-    ],
-  },
-};
+    "Crisps": {
+        "Jowar/Sorghum Millet Crisps": [{ sku: "Jowar/Sorghum Millet Crisps", variants: [{ name: "Regular", image: "/Productsremain/Jowarcrisps.png"}] }],
+        "Multi-Millet Crisps": [{ sku: "Multi-Millet Crisps", variants: [{ name: "Regular", image: "/Productsremain/MMcr.jpg" }] }],
+        "Rice Crisps": [{ sku: "Rice Crisps", variants: [{ name: "Regular", image: "/Productsremain/RiceCrisps.png" }] }],
+        "Soya Crisps": [{ sku: "Soya Crisps", variants: [{ name: "Regular", image: "/Productsremain/Soyacrisps.png" }] }]
+    },
+    "Regular": {
+        "Corn Flakes": [{ sku: "Corn Flakes", variants: [{ name: "Regular", image: "/Productsremain/Cornflakes-regular.png" }, { name: "Honey & Almond", image: "/Productsremain/Cornflakeshoneyandalmond.png" }] }],
+        "Multigrain Flakes": [{ sku: "Multigrain Flakes", variants: [{ name: "Regular", image: "/Productsremain/Multgraincerealflakes.png" }] }], 
+        "Multigrain Chocos": [{ sku: "Multigrain Chocos", variants: [{ name: "Adults", image: null }, { name: "Chocolate", image: "/Productsremain/Chocoflakes.png" }] }]
+    },
+    "Kids Category": {
+        "Multigrain Fills": [{ sku: "Multigrain Fills", variants: [{ name: "Regular", image: "/Productsremain/Chocofills.png" }] }],
+        "Choco Fills": [{ sku: "Choco Fills", variants: [{ name: "Regular", image: "/Productsremain/Ragindchoco.png" }, { name: "Red Velvet", image: "/Productsremain/Redvelvet.png" }, { name: "Banana Caramel", image: null }, { name: "Strawberry", image: null }, { name: "Vanilla", image: "/Productsremain/Vanilla.png" }] }],
+        "Choco Balls": [{ sku: "Choco Balls", variants: [{ name: "Regular", image: "/Productsremain/Chocoballs.png" }] }],
+        "Fruit Loops": [{ sku: "Fruit Loops", variants: [{ name: "Regular", image: "/Productsremain/Frootloops.png" }] }]
+    },
+    "Superfoods - Flakes": {
+        "Ragi/Finger Millet Rolled Flakes": [{ sku: "Ragi/Finger Millet Rolled Flakes", variants: [{ name: "Regular", image: "/Productsremain/Fingermilletrolledflakes.png" }] }],
+        "Bajra/Pearl Millet Rolled Flakes": [{ sku: "Bajra/Pearl Millet Rolled Flakes", variants: [{ name: "Regular", image: "/Productsremain/BajraF.png" }] }],
+        "Jowar/Sorghum Rolled Flakes": [{ sku: "Jowar/Sorghum Millet Rolled Flakes", variants: [{ name: "Regular", image: "/Productsremain/Jowarrolled.png" }] }],
+        "Ragi/Finger Millet Flakes": [{ sku: "Ragi/Finger Millet Flakes", variants: [{ name: "Regular", image: "/Productsremain/Fingermilletflakes.png" }] }],
+        "Quinoa Chocos": [{ sku: "Quinoa Chocos", variants: [{ name: "Regular", image: "/Productsremain/Chocos.png" }] }],
+        "Ragi/Finger Millet Chocos": [{ sku: "Ragi/Finger Millet Chocos", variants: [{ name: "Regular", image:"/Productsremain/Chocos.png" }] }],
+        "Multi-Millet Chocos": [{ sku: "Multi-Millet Chocos", variants: [{ name: "Regular", image: "/Productsremain/Chocos.png" }] }],
+        "Ragi/Finger Millet Fills": [{ sku: "Ragi/Finger Millet Fills", variants: [{ name: "Regular", image: "/Productsremain/Chocofills.png" }, { name: "Red Velvet", image: "/Productsremain/Redvelvet.png" }, { name: "Vanilla", image: null }, { name: "Strawberry", image: null }, { name: "Banana Caramel", image: null }, { name: "Chocolate", image: null }] }],
+        "Multi Millet Fills": [{ sku: "Multi Millet Fills", variants: [{ name: "Regular", image: "/Productsremain/Chocofills.png" }] }],
+        "Quinoa Cereal Flakes": [{ sku: "Quinoa Cereal Flakes", variants: [{ name: "Honey & Almond", image: "/Productsremain/Cornflakeshoneyandalmond.png" },{ name: "Regular", image: "/Productsremain/Quinoa.png" }] }] 
+    },
+    "Superfoods - Muesli": {
+        "Quinoa Muesli - Fruit & Nut": [{ sku: "Quinoa Muesli ", variants: [{ name: "Regular", image: null }, { name: "No Added Sugar", image: null },  { name: "Nutty Crunchy", image: "/Productsremain/Milletmueslinuttycrunchy.png" }] }],
+        "Millet Muesli": [{ sku: "Millet Muesli", variants: [{ name: "Belgian Dark Chocolate", image: "/Productsremain/Darkchocolatemilletmuesli.png" },{ name: "Berry Burst", image: "/Productsremain/Berryburst.png" },{ name: "Nutty Delight", image: null }] }]
+    },
+    "Savory Snacks": {
+        "Corn Balls": [{
+            sku: "Corn Balls",
+            variants: [
+                { name: "Regular", image: "/Corn Balls/Reg.png" },
+                { name: "Desi-Masala", image: "/Corn Balls/Desimasala.png" },
+                { name: "Tangy Tomato", image: "/Corn Balls/Tangytomato.png" },
+                { name: "Nacho Cheese", image: "/Corn Balls/NachoCheese.png" },
+                { name: "Peri-Peri", image: null },
+                { name: "Sweet Chilli", image: null },
+                { name: "Sour Cream & Onion", image: null },
+                { name: "Mint", image: "/Corn Balls/Mint.png" }
+            ]
+        }],
+        "Corn Curls": [{
+            sku: "Corn Curls",
+            variants: [
+                { name: "Regular", image: "/Curls/Corncurls.png" },
+                { name: "Desi-Masala", image: "/Curls/Desimasalac.png" },
+                { name: "Tangy Tomato", image: "/Curls/Tangyc.png" },
+                { name: "Nacho Cheese", image: null },
+                { name: "Peri-Peri", image: null },
+                { name: "Sweet Chilli", image: "/Curls/Sweetchillic.png" },
+                { name: "Sour Cream & Onion", image: null },
+                { name: "Mint", image: "/Curls/Mintc.png" }
+            ]
+        }],
+        "Quinoa Rings": [{
+            sku: "Quinoa Rings",
+            variants: [
+                { name: "Desi-Masala", image: "/Rings Low/Desimasalar.png" },
+                { name: "Tangy Tomato", image: "/Rings Low/Tangyr.png" },
+                { name: "Nacho Cheese", image: null },
+                { name: "Peri-Peri", image: null },
+                { name: "Sweet Chilli", image: "/Rings Low/Sweetchillir.png" },
+                { name: "Sour Cream & Onion", image: null },
+                { name: "Mint", image: "/Rings Low/Mintr.png" }
+            ]
+        }],
+        "High Protein Wavy Chips": [{
+            sku: "High Protein Wavy Chips",
+            variants: [
+                { name: "Desi-Masala", image: "/Wavy Chips/Desimasalaw.png" },
+                { name: "Tangy Tomato", image: "/Wavy Chips/TangyW.png" },
+                { name: "Nacho Cheese", image: null },
+                { name: "Peri-Peri", image: null },
+                { name: "Sweet Chilli", image: "/Wavy Chips/Sweetchilliw.png" },
+                { name: "Sour Cream & Onion", image: null },
+                { name: "Mint", image: "/Wavy Chips/Mintw.png" }
+            ]
+        }],
+          "Corn Puffs": [{
+            sku: "Puffs",
+            variants: [
+                { name: "Desi-Masala", image: "/Puffs/Dm.png" },
+                { name: "Tangy Tomato", image: "/Puffs/TT.png" },
+                { name: "Nacho Cheese", image: "/Puffs/NC.png" },
+                { name: "Sweet Chilli", image: "/Puffs/Sc.png" },
+                { name: "Sour Cream & Onion", image: null }
+            ]
+        }],
+        "Puffs/Balls/Rings/Curls - Multi-Millet": [{ sku: "MultiMillet", variants: [{ name: "Desi-Masala Puffs", image: "/Puffs/Dm.png" }, { name: "Tangy Tomato Wavy chips", image: "/Wavy Chips/TangyW.png" }, { name: "Nacho Cheese Balls", image: "/Corn Balls/NachoCheese.png" }, { name: "Peri-Peri", image: null }, { name: "Sweet Chilli", image: null }, { name: "Sour Cream & Onion", image: null }] }],
+        "Veggie Sticks": [{ sku: "Veggie Sticks", variants: [ 
+            { name: "Desi-Masala", image: "/Productsremain/Veggisticks.png" }, 
+            { name: "Tangy Tomato", image: null }, 
+            { name: "Nacho Cheese", image: null }, 
+            { name: "Peri-Peri", image: null }, 
+            { name: "Sweet Chilli", image: null }, 
+            { name: "Sour Cream & Onion", image: null }
+        ] }],
+        "Protein - GP - Puffs/Curls/Balls/Rings": [{ sku: "Protein GP", variants: [{ name: "Desi-Masala Balls", image: "/Corn Balls/Desimasala.png" }, { name: "Tangy Tomato Curls", image: "/Curls/Tangyc.png" }, { name: "Nacho Cheese Puffs", image: "/Puffs/NC.png" }, { name: "Peri-Peri", image: null }, { name: "Sweet Chilli Rings", image: "/Rings Low/Sweetchillir.png" }, { name: "Sour Cream & Onion", image: null }, { name: "Plain", image: null }] }],
+        "Makhana": [{ sku: "Makhana", variants: [ 
+            { name: "Desi-Masala", image: null },
+            { name: "Roasted", image: "/Productsremain/Makhanaroast.png" }, 
+            { name: "Peri-Peri", image: null }, 
+            { name: "Mint", image: null }, 
+            { name: "Plain", image: "/Productsremain/Makhana.png" } 
+
+        ] }]
+    },
+    "Nutrition Bars": {
+        "Millet Bar": [{ sku: "Millet Bar", variants: [{ name: "Regular", image: "/Productsremain/Milletbar.png" },{ name: "Fruits & Berries", image: "/Productsremain/MFB.png" }, { name: "Nuts & Seeds", image: "/Productsremain/MNS.png" }] }],
+        "Protein Bar": [{ sku: "Protein Bar", variants: [ { name: "Cranberry", image: "/Productsremain/cranberry.png" }, { name: "Almond Choco", image: "/Productsremain/Almondchoco.png" }] }],
+        "Meal Replacement Bar": [{ sku: "Meal Replacement Bar", variants: [{ name: "Multigrain", image: "/Productsremain/Mealreplacement.png" }] }]
+    },
+    "Ready-to-Cook": {
+        "Millet Porridge": [{ sku: "Millet Porridge", variants: [
+            { name: "Mixed Vegetables", image: "/Productsremain/Milletporridgemixedvegitables.png" }, 
+            { name: "Tangy Tomato & Onion", image: "/Productsremain/Milletporridge-Tangytomamtoandonion.png" }, 
+            { name: "Apple & Cinnamon", image: "/Productsremain//Milletporridgeappleandcinnamon.png" },
+            { name: "Mixed fruit and Chocolate", image: "/Productsremain/mm.png" }
+        ] }],
+        "Health  Mix Adults": [{ sku: "Health Mix ", variants: [
+            { name: "Malt", image: "/Productsremain/Healthmixmalt.png" }, 
+            { name: "Vanilla", image:"/Productsremain/Healthmixvanilla.png" }
+        ] }],
+        "Health Mix Kids": [{ sku: "Health Mix", variants: [
+            { name: "Strawberry ", image: "/Productsremain/Healthmixstrawberry.png" }, 
+            { name: "Vanilla ", image: "/Productsremain/Healthmixvanilla.png" }
+        ] }]
+    },
+    "Flour": {
+        "Flour": [
+            { sku: "Flour", variants: [{ name: "Jowar/Sorghum Millet", image: "/Productsremain/Sorghumflour.png" }] },
+            { sku: "Flour", variants: [{ name: "Ragi/Finger Millet", image: "/Productsremain/Fingermilletflour.png" }] },
+            { sku: "Flour", variants: [{ name: "Bajra/Pearl Millet", image: "/Productsremain/Pearlmilletflour.png" }] }
+        ]
+    },
+    "Rava": {
+        "Idly Rava": [{ 
+            sku: "Idly Rava", 
+            variants: [
+                { name: "Jowar/Sorghum Millet", image: "/Productsremain/Sorghumidlyrava.png" },
+                { name: "Ragi/Finger Millet", image: "/Productsremain/Fingermilletidlyravva.png" },
+                { name: "Bajra/Pearl Millet", image: "/Productsremain/Pearlmilletidlyrava.png" }
+            ] 
+        }],
+        "Upma Rava": [{ 
+            sku: "Upma Rava", 
+            variants: [
+                { name: "Jowar/Sorghum Millet", image: "/Productsremain/Sorghumupmarava.png" }, 
+                { name: "Ragi/Finger Millet", image: "/Productsremain/Fingermilletupmarava.png" }, 
+                { name: "Bajra/Pearl Millet", image: "/Productsremain/Pearlmilletupmarava.png" }
+            ] 
+        }]
+    }
+}
 
 const categories = Object.keys(productCatalog);
 
 function Productcat() {
-  const [activeCategory, setActiveCategory] = useState(categories[0]);
-  const [activeSubCategory, setActiveSubCategory] = useState(Object.keys(productCatalog[categories[0]])[0]);
+    const [activeCategory, setActiveCategory] = useState(categories[0]);
+    const mainContainerRef = useRef(null);
 
-  const productGridRef = useRef(null);
-  const tabsRef = useRef(null);
-  const activeTabIndicatorRef = useRef(null);
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            const sections = gsap.utils.toArray('.product-category-section');
 
-  const subCategories = Object.keys(productCatalog[activeCategory] || {});
-  const products = productCatalog[activeCategory]?.[activeSubCategory] || [];
-  const flattenedProducts = products.flatMap(product =>
-    product.variants.map(variant => ({
-      sku: product.sku,
-      variant,
-      displayName: variant === "Regular" ? product.sku : `${product.sku} - ${variant}`
-    }))
-  );
+            sections.forEach((section, index) => {
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: "top center",
+                    end: "bottom center",
+                    onToggle: self => self.isActive && setActiveCategory(categories[index])
+                });
+            });
 
-  const handleCategoryClick = (category, event) => {
-    setActiveCategory(category);
-    setActiveSubCategory(Object.keys(productCatalog[category])[0]);
+            // Animate sections on initial load
+            gsap.from(sections, {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: 'power3.out'
+            });
 
-    const tab = event.currentTarget;
-    const tabsContainer = tabsRef.current;
-    if (tab && tabsContainer && activeTabIndicatorRef.current) {
-      const offsetLeft = tab.offsetLeft - tabsContainer.scrollLeft;
-      const width = tab.clientWidth;
-      gsap.to(activeTabIndicatorRef.current, {
-        left: offsetLeft,
-        width: width,
-        duration: 0.4,
-        ease: "power3.inOut",
-      });
-    }
-  };
+        }, mainContainerRef);
+        return () => ctx.revert();
+    }, []);
 
-  useEffect(() => {
-    const initialActiveTab = tabsRef.current?.querySelector('button');
-    if (initialActiveTab && activeTabIndicatorRef.current) {
-      activeTabIndicatorRef.current.style.left = `${initialActiveTab.offsetLeft}px`;
-      activeTabIndicatorRef.current.style.width = `${initialActiveTab.clientWidth}px`;
-    }
-  }, []);
+    const handleNavLinkClick = (category) => {
+        const section = document.getElementById(category);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
 
-  useEffect(() => {
-    gsap.fromTo(
-      productGridRef.current?.children,
-      { opacity: 0, scale: 0.95, y: 20 },
-      { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "power3.out" }
-    );
-  }, [activeSubCategory, activeCategory]);
-
-  return (
-    <section className="bg-[#FDFBF7] py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-neutral-800 mb-4">
-            Our Culinary Collection
-          </h1>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            An immersive journey through our finest products, crafted with passion and purpose.
-          </p>
-        </div>
-
-        {/* --- Category Tabs (Made scrollable for better responsiveness) --- */}
-        <div className="relative mb-12">
-          <div
-            ref={tabsRef}
-            className="flex overflow-x-auto space-x-4 md:space-x-8 border-b border-neutral-200 pb-2 scrollbar-hide"
-          >
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={(e) => handleCategoryClick(category, e)}
-                className={`flex-shrink-0 px-4 py-3 text-lg font-medium transition-colors duration-300 relative ${
-                  activeCategory === category ? 'text-[#9D252D]' : 'text-neutral-500 hover:text-neutral-900'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-          <div ref={activeTabIndicatorRef} className="absolute bottom-0 h-1 bg-[#9D252D] rounded-full" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* --- Sub-Category Sidebar (Enhanced with shadow and hover effects) --- */}
-          <aside key={activeCategory} className="lg:col-span-3">
-            <div className="sticky top-28 space-y-2 p-4 bg-white/60 backdrop-blur-md rounded-xl border border-neutral-200/80 shadow-sm">
-              <h3 className="font-semibold text-neutral-800 px-3 pb-2">Varieties</h3>
-              {subCategories.map((subCat) => (
-                <button
-                  key={subCat}
-                  onClick={() => setActiveSubCategory(subCat)}
-                  className={`w-full text-left text-base font-medium px-3 py-2 rounded-lg transition-all duration-300 ${
-                    activeSubCategory === subCat
-                      ? 'bg-[#9D252D] text-white shadow-md'
-                      : 'text-neutral-600 hover:bg-neutral-100 hover:shadow-sm'
-                  }`}
-                >
-                  {subCat}
-                </button>
-              ))}
-            </div>
-          </aside>
-
-          {/* --- Product Grid (Separate cards for each variant, removed image animation) --- */}
-          <main className="lg:col-span-9">
-            <h2 className="text-3xl font-serif font-bold text-neutral-800 mb-6">{activeSubCategory}</h2>
-            <div ref={productGridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {flattenedProducts.map((item) => (
-                <div
-                  key={`${item.sku}-${item.variant}`}
-                  className="bg-white rounded-2xl shadow-sm group p-5 flex flex-col transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
-                >
-                  <div className="relative aspect-square w-full flex items-center justify-center mb-4 overflow-hidden rounded-xl">
-                    <div className="absolute inset-0 bg-neutral-50" />
-                    <div className="relative h-3/4 w-3/4">
-                      <PhotoIcon className="h-full w-full text-neutral-300" />
-                    </div>
-                  </div>
-                  <div className="flex-grow flex flex-col justify-center">
-                    <h3 className="font-semibold text-neutral-800 text-lg leading-tight text-center">{item.displayName}</h3>
-                  </div>
+    return (
+        <section className="bg-[#FDFBF7] py-24 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-xl mx-auto">
+                <div className="text-center mb-20">
+                    <h1 className="font-serif text-5xl md:text-6xl font-bold text-neutral-800 mb-4">
+                        The Agasthya Collection
+                    </h1>
+                    <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+                        A complete look at our culinary craft. Select a category to begin your journey.
+                    </p>
                 </div>
-              ))}
-            </div>
-          </main>
-        </div>
-      </div>
-    </section>
-  );
-}
 
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                    {/* --- Left Column: Sticky "Scrollspy" Navigation --- */}
+                    <aside className="lg:col-span-3">
+                        <nav className="sticky top-28 space-y-2">
+                            <h3 className="font-semibold text-neutral-500 uppercase tracking-wider px-4 mb-2">Product Categories</h3>
+                            {categories.map((category) => (
+                                <button
+                                    key={category}
+                                    onClick={() => handleNavLinkClick(category)}
+                                    className={`nav-link w-full text-left text-lg px-4 py-2.5 rounded-lg transition-all duration-300 font-medium ${activeCategory === category
+                                            ? 'bg-[#9D252D] text-white shadow-md'
+                                            : 'text-neutral-600 hover:bg-white hover:text-neutral-800'
+                                        }`}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </nav>
+                    </aside>
+                    <main ref={mainContainerRef} className="lg:col-span-9">
+                        {categories.map((category) => (
+                            <div key={category} id={category} className="product-category-section mb-20">
+                                <h2 className="font-serif text-4xl font-bold text-neutral-800 mb-8 border-b-2 border-neutral-200 pb-4">
+                                    {category}
+                                </h2>
+                                {Object.keys(productCatalog[category]).map(subCategory => (
+                                    <div key={subCategory} className="mb-10">
+                                        <h3 className="text-2xl font-semibold text-neutral-700 mb-6">{subCategory}</h3>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                                            {/* --- LOGIC TO SHOW EITHER IMAGE CARD OR "AVAILABLE FLAVOURS" LIST --- */}
+                                            {(productCatalog[category][subCategory] || []).flatMap(product => {
+                                                const variantsWithImages = product.variants.filter(v => v.image);
+                                                const variantsWithoutImages = product.variants.filter(v => !v.image);
+                                                
+                                                const cards = [];
+
+                                                // 1. Create cards for all variants that HAVE an image
+                                                variantsWithImages.forEach(variant => {
+                                                    let productName;
+                                                    if ((category === "Crisps" || category === "Superfoods - Flakes") && variant.name === "Regular") {
+                                                        productName = product.sku;
+                                                    } else {
+                                                        productName = `${product.sku} - ${variant.name}`;
+                                                    }
+                                                    
+                                                    cards.push(
+                                                        <div key={productName} className="bg-white rounded-2xl shadow-sm group p-5 flex flex-col text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 border border-transparent hover:border-red-100 h-full">
+                                                            <div className="relative aspect-square w-full flex items-center justify-center mb-4">
+                                                                <div className="absolute inset-0   rounded-xl" />
+                                                                <div className="relative h-3/4 w-3/4 transition-transform duration-300 group-hover:scale-105">
+                                                                    <img src={variant.image} alt={productName} className="h-full w-full object-contain" />
+                                                                </div>
+                                                            </div>
+                                                            <h4 className="font-semibold text-neutral-800 text-lg leading-tight flex-grow">{productName}</h4>
+                                                        </div>
+                                                    );
+                                                });
+
+                                                // 2. If there are any variants WITHOUT images, create ONE "options" card
+                                                if (variantsWithoutImages.length > 0) {
+                                                    const optionsKey = `${product.sku}-options`; 
+                                                    cards.push(
+                                                        <div key={optionsKey} className="bg-white rounded-2xl shadow-sm group p-5 flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 border border-transparent hover:border-red-100 h-full">
+                                                            {/* Product Name - flex-grow REMOVED */}
+                                                            <h4 className="font-semibold text-neutral-800 text-lg leading-tight text-center mb-4">
+                                                                {product.sku}
+                                                                {/* Add a subtitle if there were also variants with images */}
+                                                                {variantsWithImages.length > 0 && <span className="block text-sm text-neutral-500 font-normal">(Other Flavours)</span>}
+                                                            </h4>
+                                                            
+                                                            {/* List of variants (flavors) - flex-grow ADDED HERE */}
+                                                            <div className="pt-4 border-t border-neutral-100 flex-grow">
+                                                                <h5 className="text-sm font-semibold text-neutral-500 mb-2 text-left uppercase tracking-wider">Available Options:</h5>
+                                                                <ul className="list-disc list-inside space-y-1 text-left text-neutral-600 text-sm">
+                                                                    {variantsWithoutImages.map(variant => (
+                                                                        <li key={variant.name}>{variant.name}</li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                }
+       
+return cards; // 
+                                            })}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </main>
+                </div>
+            </div>
+        </section>
+    );
+}
 export default Productcat;

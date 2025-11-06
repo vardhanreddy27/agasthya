@@ -8,7 +8,7 @@ export default function Ourpl() {
         {/* Left Column - Image */}
         <div>
           <Image
-            src="/pl.webp"
+            src="/pl.jpg"
             alt="Private Label Client Logos"
             width={600}
             height={400}
